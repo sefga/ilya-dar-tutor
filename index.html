@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="Илья Дар — репетитор математики, физики и информатики. 6 лет практики, системный подход, результат выше среднего." />
+  <meta name="theme-color" content="#f5f5f7" />
+  <title>Илья Дар — репетитор математики, физики и информатики</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f5f5f7;
+      --bg-elevated: #ffffff;
+      --bg-dark: #000000;
+      --text: #1d1d1f;
+      --text-secondary: #6e6e73;
+      --text-on-dark: #f5f5f7;
+      --text-on-dark-muted: #a1a1a6;
+      --accent: #0071e3;
+      --accent-hover: #0077ed;
+      --line: rgba(0, 0, 0, 0.08);
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+      --radius: 28px;
+      --radius-sm: 18px;
+      --max: 1120px;
+      --nav-h: 56px;
+      --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.47;
+      font-size: 17px;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button, .btn { font: inherit; cursor: pointer; border: 0; }
+
+    .container {
+      width: min(100% - 40px, var(--max));
+      margin-inline: auto;
+    }
+
+    /* Nav */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      height: var(--nav-h);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      background: rgba(245, 245, 247, 0.72);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .logo {
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      font-size: 15px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--accent);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 980px;
+      font-size: 13px;
+      font-weight: 500;
+      transition: background 0.2s var(--ease);
+    }
+    .nav-cta:hover { background: var(--accent-hover); }
+    .nav-toggle {
+      display: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: transparent;
+      color: var(--text);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 980px;
+      padding: 14px 24px;
+      font-weight: 500;
+      font-size: 16px;
+      transition: transform 0.2s var(--ease), background 0.2s var(--ease), opacity 0.2s var(--ease);
+    }
+    .btn:hover { transform: scale(1.02); }
+    .btn:active { transform: scale(0.98); }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-hover); }
+    .btn-secondary {
+      background: rgba(0, 0, 0, 0.06);
+      color: var(--text);
+    }
+    .btn-secondary:hover { background: rgba(0, 0, 0, 0.1); }
+    .btn-light {
+      background: #fff;
+      color: var(--text);
+    }
+    .btn-ghost-light {
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.28);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 72px 0 48px;
+      text-align: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+      margin-bottom: 18px;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.15);
+    }
+    .hero h1 {
+      font-size: clamp(40px, 7vw, 72px);
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+      font-weight: 700;
+      max-width: 14ch;
+      margin: 0 auto 18px;
+    }
+    .hero-lead {
+      font-size: clamp(18px, 2.2vw, 22px);
+      color: var(--text-secondary);
+      max-width: 38ch;
+      margin: 0 auto 32px;
+      letter-spacing: -0.01em;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 48px;
+    }
+    .hero-panel {
+      background: var(--bg-elevated);
+      border-radius: 36px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      text-align: left;
+      min-height: 420px;
+    }
+    .hero-copy {
+      padding: clamp(28px, 4vw, 48px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 28px;
+    }
+    .hero-copy h2 {
+      font-size: clamp(28px, 3.5vw, 40px);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      font-weight: 650;
+    }
+    .hero-copy p {
+      color: var(--text-secondary);
+      font-size: 17px;
+      max-width: 36ch;
+      margin-top: 12px;
+    }
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      border-top: 1px solid var(--line);
+      padding-top: 22px;
+    }
+    .hero-meta strong {
+      display: block;
+      font-size: 22px;
+      letter-spacing: -0.03em;
+      margin-bottom: 2px;
+    }
+    .hero-meta span {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+    .hero-photo {
+      position: relative;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,0.55), transparent 35%),
+        linear-gradient(160deg, #d2d2d7 0%, #a1a1a6 45%, #6e6e73 100%);
+      min-height: 360px;
+      display: grid;
+      place-items: center;
+      color: rgba(255,255,255,0.92);
+      overflow: hidden;
+    }
+    .photo-placeholder {
+      width: min(78%, 280px);
+      aspect-ratio: 3/4;
+      border-radius: 28px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.22);
+      backdrop-filter: blur(8px);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 24px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.18);
+    }
+    .photo-placeholder strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+    .photo-placeholder span {
+      font-size: 13px;
+      opacity: 0.85;
+      line-height: 1.4;
+    }
+
+    /* Sections */
+    section { padding: 88px 0; }
+    .section-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(32px, 5vw, 48px);
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+      font-weight: 700;
+      max-width: 16ch;
+      margin-bottom: 16px;
+    }
+    .section-lead {
+      color: var(--text-secondary);
+      font-size: 19px;
+      max-width: 42ch;
+      margin-bottom: 40px;
+    }
+
+    /* Subjects */
+    .subjects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .card {
+      background: var(--bg-elevated);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+      transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: #f0f0f2;
+      margin-bottom: 18px;
+      font-size: 20px;
+    }
+    .card h3 {
+      font-size: 22px;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+    .card p {
+      color: var(--text-secondary);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+    .card ul {
+      margin-top: 16px;
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+    .card li {
+      font-size: 14px;
+      color: var(--text);
+      padding-left: 18px;
+      position: relative;
+    }
+    .card li::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+    }
+
+    /* Method dark */
+    .method {
+      background: var(--bg-dark);
+      color: var(--text-on-dark);
+      border-radius: 40px;
+      margin: 0 auto;
+      width: min(100% - 24px, calc(var(--max) + 48px));
+      padding: 72px 24px;
+    }
+    .method .section-label { color: #2997ff; }
+    .method .section-title { color: #fff; max-width: 18ch; }
+    .method .section-lead { color: var(--text-on-dark-muted); }
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .method-item {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 28px;
+    }
+    .method-item .num {
+      font-size: 13px;
+      color: #2997ff;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .method-item h3 {
+      font-size: 22px;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+    .method-item p {
+      color: var(--text-on-dark-muted);
+      font-size: 15px;
+    }
+
+    /* Results */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .stat {
+      background: var(--bg-elevated);
+      border-radius: 24px;
+      padding: 28px 22px;
+      text-align: center;
+    }
+    .stat strong {
+      display: block;
+      font-size: clamp(28px, 4vw, 40px);
+      letter-spacing: -0.04em;
+      margin-bottom: 6px;
+    }
+    .stat span {
+      color: var(--text-secondary);
+      font-size: 13px;
+    }
+    .note {
+      font-size: 13px;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+
+    /* Reviews */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .review {
+      background: var(--bg-elevated);
+      border-radius: var(--radius);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      min-height: 280px;
+    }
+    .stars {
+      color: #f5a524;
+      letter-spacing: 2px;
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+    .review blockquote {
+      font-size: 16px;
+      letter-spacing: -0.01em;
+      line-height: 1.45;
+      flex: 1;
+    }
+    .review footer {
+      margin-top: 22px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #d2d2d7, #86868b);
+      flex-shrink: 0;
+    }
+    .review cite {
+      font-style: normal;
+      font-size: 14px;
+      font-weight: 600;
+      display: block;
+    }
+    .review small {
+      color: var(--text-secondary);
+      font-size: 12px;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 28px;
+      align-items: center;
+    }
+    .about-visual {
+      border-radius: 36px;
+      min-height: 420px;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.18)),
+        linear-gradient(145deg, #e8e8ed, #c7c7cc 55%, #8e8e93);
+      display: grid;
+      place-items: end stretch;
+      padding: 24px;
+    }
+    .about-badge {
+      background: rgba(255,255,255,0.86);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 18px 20px;
+    }
+    .about-badge strong {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+    .about-badge span {
+      color: var(--text-secondary);
+      font-size: 13px;
+    }
+    .about-list {
+      list-style: none;
+      display: grid;
+      gap: 14px;
+      margin-top: 8px;
+    }
+    .about-list li {
+      background: var(--bg-elevated);
+      border-radius: 18px;
+      padding: 18px 20px;
+      font-size: 15px;
+      color: var(--text-secondary);
+    }
+    .about-list strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 4px;
+      font-size: 16px;
+    }
+
+    /* Pricing */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+    .price-card {
+      background: var(--bg-elevated);
+      border-radius: 32px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      border: 1px solid transparent;
+    }
+    .price-card.featured {
+      background: var(--bg-dark);
+      color: #fff;
+      transform: scale(1.02);
+      box-shadow: var(--shadow);
+    }
+    .price-card.featured p,
+    .price-card.featured li {
+      color: var(--text-on-dark-muted);
+    }
+    .price-card.featured h3,
+    .price-card.featured .price {
+      color: #fff;
+    }
+    .badge {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: #2997ff;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 6px 10px;
+      border-radius: 980px;
+    }
+    .price-card h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+    .price-card > p {
+      color: var(--text-secondary);
+      font-size: 14px;
+      min-height: 44px;
+      margin-bottom: 20px;
+    }
+    .price {
+      font-size: 40px;
+      letter-spacing: -0.04em;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .price em {
+      font-style: normal;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+    .price-card.featured .price em { color: var(--text-on-dark-muted); }
+    .price-note {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-bottom: 22px;
+    }
+    .price-card ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin-bottom: 28px;
+      flex: 1;
+    }
+    .price-card li {
+      font-size: 14px;
+      padding-left: 22px;
+      position: relative;
+      color: var(--text-secondary);
+    }
+    .price-card li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .price-card.featured li::before { color: #2997ff; }
+    .price-card .btn { width: 100%; }
+
+    /* CTA */
+    .cta {
+      padding-top: 24px;
+      padding-bottom: 100px;
+    }
+    .cta-box {
+      background:
+        radial-gradient(circle at 80% 20%, rgba(41,151,255,0.25), transparent 30%),
+        linear-gradient(145deg, #0b0b0f, #1d1d1f 55%, #111);
+      color: #fff;
+      border-radius: 40px;
+      padding: clamp(40px, 6vw, 72px);
+      text-align: center;
+    }
+    .cta-box h2 {
+      font-size: clamp(32px, 5vw, 48px);
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+      max-width: 14ch;
+      margin: 0 auto 16px;
+    }
+    .cta-box p {
+      color: var(--text-on-dark-muted);
+      font-size: 18px;
+      max-width: 38ch;
+      margin: 0 auto 28px;
+    }
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+    .cta-fine {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0 40px;
+      color: var(--text-secondary);
+      font-size: 13px;
+    }
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Mobile menu */
+    @media (max-width: 900px) {
+      .hero-panel,
+      .subjects-grid,
+      .method-grid,
+      .stats,
+      .reviews-grid,
+      .about-grid,
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-meta { grid-template-columns: 1fr; }
+      .price-card.featured { transform: none; }
+      .nav-links {
+        position: fixed;
+        inset: var(--nav-h) 12px auto;
+        background: rgba(255,255,255,0.96);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 14px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+        display: none;
+        box-shadow: var(--shadow);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a {
+        padding: 12px 10px;
+        border-radius: 12px;
+      }
+      .nav-links a:hover { background: rgba(0,0,0,0.04); }
+      .nav-toggle { display: grid; place-items: center; }
+      .nav-cta { text-align: center; }
+      section { padding: 64px 0; }
+      .method { border-radius: 28px; padding: 48px 18px; }
+    }
+
+    @media (max-width: 560px) {
+      .container { width: min(100% - 28px, var(--max)); }
+      .hero { padding-top: 48px; }
+      .hero-actions .btn,
+      .cta-actions .btn { width: 100%; }
+      .card, .review, .price-card { padding: 22px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .card, .btn { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="logo" href="#top">Илья Дар</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Меню" aria-expanded="false">☰</button>
+      <nav class="nav-links" id="navLinks">
+        <a href="#subjects">Предметы</a>
+        <a href="#method">Подход</a>
+        <a href="#results">Результаты</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#pricing">Форматы</a>
+        <a class="nav-cta" href="#contact">Записаться</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow">Репетитор · 6 лет практики</div>
+        <h1>Математика, физика и информатика на уровне результата</h1>
+        <p class="hero-lead">
+          Спокойная, точная работа с учениками, которым нужны не «ещё одни занятия»,
+          а понятная система, рост оценок и уверенность на экзаменах.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Обсудить запрос</a>
+          <a class="btn btn-secondary" href="#method">Как я работаю</a>
+        </div>
+
+        <div class="hero-panel">
+          <div class="hero-copy">
+            <div>
+              <h2>Преподаватель, который держит планку</h2>
+              <p>
+                Илья Дар — репетитор математики, физики и информатики с опытом школьной
+                педагогики и шестью годами индивидуальной подготовки. Фокус — на
+                учениках семей, которые ценят ясность, дисциплину процесса и измеримый прогресс.
+              </p>
+            </div>
+            <div class="hero-meta">
+              <div>
+                <strong>6 лет</strong>
+                <span>репетиторства</span>
+              </div>
+              <div>
+                <strong>3</strong>
+                <span>ключевых предмета</span>
+              </div>
+              <div>
+                <strong>1:1</strong>
+                <span>и мини-группы</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-photo" aria-label="Фото преподавателя">
+            <div class="photo-placeholder">
+              <div>
+                <strong>Фото Ильи</strong>
+                <span>Сюда добавим портрет.<br />Пока — аккуратный placeholder в стиле Apple.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="subjects">
+      <div class="container">
+        <div class="section-label">Предметы</div>
+        <h2 class="section-title">Три дисциплины. Одна планка качества.</h2>
+        <p class="section-lead">
+          Не «всё понемногу», а глубокая связка предметов, где логика, точность и
+          системное мышление усиливают друг друга.
+        </p>
+
+        <div class="subjects-grid">
+          <article class="card">
+            <div class="card-icon">∑</div>
+            <h3>Математика</h3>
+            <p>
+              От школьной программы до уверенной подготовки к контрольным, ОГЭ/ЕГЭ
+              и вступительным. Учим не зубрить, а видеть структуру задачи.
+            </p>
+            <ul>
+              <li>Алгебра, геометрия, начала анализа</li>
+              <li>Закрытие пробелов без стыда и гонки</li>
+              <li>Экзаменационная техника и тайминг</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">ƒ</div>
+            <h3>Физика</h3>
+            <p>
+              Предмет, который «оживает», когда формулы связаны с смыслом.
+              Разбираем механику, электричество, оптику и термодинамику так,
+              чтобы задачи перестали быть набором фокусов.
+            </p>
+            <ul>
+              <li>Понимание моделей, а не только формул</li>
+              <li>Типовые ловушки на экзаменах</li>
+              <li>Связка с математикой для сложных задач</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">{/div>
+            <h3>Информатика</h3>
+            <p>
+              Логика, алгоритмы, программирование и подготовка к экзаменам.
+              Для тех, кто хочет не только сдать, но и уверенно мыслить
+              «как инженер».
+            </p>
+            <ul>
+              <li>Алгоритмы, структуры, Python / основы кода</li>
+              <li>Подготовка к ОГЭ/ЕГЭ по информатике</li>
+              <li>Аккуратная база для IT-направления</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="method" id="method">
+      <div class="container">
+        <div class="section-label">Метод</div>
+        <h2 class="section-title">Экспертность — это не харизма. Это система.</h2>
+        <p class="section-lead">
+          За 6 лет репетиторства и работы в школе сложился понятный процесс:
+          диагностика → план → практика → контроль. Без хаоса, без «поговорили и забыли».
+        </p>
+
+        <div class="method-grid">
+          <article class="method-item">
+            <div class="num">01</div>
+            <h3>Точная диагностика</h3>
+            <p>
+              На старте выясняем не только «какой балл нужен», но и где реально
+              проседает фундамент. Это экономит месяцы бессмысленного повторения
+              уже знакомого материала.
+            </p>
+          </article>
+          <article class="method-item">
+            <div class="num">02</div>
+            <h3>Индивидуальная траектория</h3>
+            <p>
+              План занятий строится под цель: подтянуть четверть, сдать экзамен,
+              выйти на высокий балл или выровнять пробелы после смены школы.
+              Родители всегда понимают, куда мы идём.
+            </p>
+          </article>
+          <article class="method-item">
+            <div class="num">03</div>
+            <h3>Плотная практика</h3>
+            <p>
+              Теория — коротко и по делу. Основное время — на задачи, разбор ошибок
+              и формирование «мышцы» самостоятельного решения. Ученик уходит с
+              ощущением: «я могу повторить это без подсказки».
+            </p>
+          </article>
+          <article class="method-item">
+            <div class="num">04</div>
+            <h3>Прозрачный прогресс</h3>
+            <p>
+              Фиксируем результаты: темы закрыты, типы задач освоены, пробники
+              выросли. Это формат для семей, которым важна ответственность
+              преподавателя, а не просто «приятные занятия».
+            </p>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <section id="results">
+      <div class="container">
+        <div class="section-label">Результаты</div>
+        <h2 class="section-title">Цифры, которые говорят громче обещаний</h2>
+        <p class="section-lead">
+          Ниже — каркас блока. Когда пришлёте реальные метрики и кейсы учеников,
+          заменим плейсхолдеры на точные формулировки без воды.
+        </p>
+
+        <div class="stats">
+          <div class="stat">
+            <strong>6+</strong>
+            <span>лет репетиторской практики</span>
+          </div>
+          <div class="stat">
+            <strong>—</strong>
+            <span>средний рост балла (плейсхолдер)</span>
+          </div>
+          <div class="stat">
+            <strong>—</strong>
+            <span>успешных кейсов ЕГЭ/ОГЭ (плейсхолдер)</span>
+          </div>
+          <div class="stat">
+            <strong>100%</strong>
+            <span>фокус на измеримом прогрессе</span>
+          </div>
+        </div>
+        <p class="note">* Блок будет обновлён реальными результатами учеников и скриншотами/цифрами из отзывов.</p>
+      </div>
+    </section>
+
+    <section id="reviews">
+      <div class="container">
+        <div class="section-label">Отзывы</div>
+        <h2 class="section-title">Доверие строится на чужих результатах</h2>
+        <p class="section-lead">
+          Сейчас — стилистические заглушки. Пришлите живые отзывы родителей и учеников:
+          вставим текст, имена (или инициалы) и, при желании, фото.
+        </p>
+
+        <div class="reviews-grid">
+          <article class="review">
+            <div class="stars">★★★★★</div>
+            <blockquote>
+              «Заглушка отзыва. Здесь будет реальный текст родителя: как изменились
+              оценки, дисциплина подготовки и отношение ребёнка к предмету.»
+            </blockquote>
+            <footer>
+              <div class="avatar" aria-hidden="true"></div>
+              <div>
+                <cite>Имя родителя</cite>
+                <small>Математика · 10 класс · плейсхолдер</small>
+              </div>
+            </footer>
+          </article>
+
+          <article class="review">
+            <div class="stars">★★★★★</div>
+            <blockquote>
+              «Заглушка отзыва. Здесь — история про физику: пробелы, которые закрыли,
+              и спокойствие перед контрольной / экзаменом.»
+            </blockquote>
+            <footer>
+              <div class="avatar" aria-hidden="true"></div>
+              <div>
+                <cite>Имя родителя</cite>
+                <small>Физика · 9–11 класс · плейсхолдер</small>
+              </div>
+            </footer>
+          </article>
+
+          <article class="review">
+            <div class="stars">★★★★★</div>
+            <blockquote>
+              «Заглушка отзыва. Здесь — про информатику: от «ничего не понимаю» к
+              уверенному решению типовых и усложнённых задач.»
+            </blockquote>
+            <footer>
+              <div class="avatar" aria-hidden="true"></div>
+              <div>
+                <cite>Ученик / родитель</cite>
+                <small>Информатика · плейсхолдер</small>
+              </div>
+            </footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about-grid">
+        <div class="about-visual">
+          <div class="about-badge">
+            <strong>Школа + репетиторство</strong>
+            <span>Опыт классной динамики и индивидуальной глубины</span>
+          </div>
+        </div>
+        <div>
+          <div class="section-label">О преподавателе</div>
+          <h2 class="section-title">Почему с Ильёй комфортно семьям «выше среднего»</h2>
+          <p class="section-lead" style="margin-bottom: 20px;">
+            Это не масс-маркет «дешёвый час». И не VIP-коучинг за космические деньги.
+            Это аккуратный премиальный формат: уважение к времени, взрослый разговор
+            с родителем и требовательная, но бережная работа с учеником.
+          </p>
+          <ul class="about-list">
+            <li>
+              <strong>Опыт в школе</strong>
+              Понимает, как устроена реальная программа, контрольные и «что на самом деле спрашивают».
+            </li>
+            <li>
+              <strong>6 лет репетиторства</strong>
+              Умеет выстраивать долгий путь: от тревоги и каши в голове — к системе и результату.
+            </li>
+            <li>
+              <strong>Три предмета — один стандарт</strong>
+              Математика, физика, информатика без размытия качества и «универсального дилетантства».
+            </li>
+            <li>
+              <strong>Коммуникация без тумана</strong>
+              Родитель получает понятный статус: что уже закрыто, что в работе, где зона риска.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="container">
+        <div class="section-label">Форматы</div>
+        <h2 class="section-title">Прозрачные форматы. Честный уровень.</h2>
+        <p class="section-lead">
+          Цены-плейсхолдеры — ориентир сегмента «выше среднего / premium».
+          После согласования с Ильёй поставим финальные цифры и пакеты.
+        </p>
+
+        <div class="pricing-grid">
+          <article class="price-card">
+            <h3>Диагностика</h3>
+            <p>Стартовая встреча: цель, уровень, план на 4–8 недель.</p>
+            <div class="price">от 2&nbsp;500&nbsp;₽ <em>/ 60–75 мин</em></div>
+            <div class="price-note">Можно зачесть в пакет при продолжении</div>
+            <ul>
+              <li>Разбор текущего уровня</li>
+              <li>Карта пробелов</li>
+              <li>Рекомендации по формату</li>
+              <li>Понятный next step</li>
+            </ul>
+            <a class="btn btn-secondary" href="#contact">Запросить слот</a>
+          </article>
+
+          <article class="price-card featured">
+            <div class="badge">Частый выбор</div>
+            <h3>Индивидуально</h3>
+            <p>Основной формат для серьёзного прогресса в одном предмете.</p>
+            <div class="price">от 3&nbsp;500&nbsp;₽ <em>/ 60 мин</em></div>
+            <div class="price-note">Пакеты 8 / 12 занятий — выгоднее</div>
+            <ul>
+              <li>Персональная программа</li>
+              <li>Домашние задания с проверкой</li>
+              <li>Связь между занятиями</li>
+              <li>Отчётность для родителей</li>
+              <li>Онлайн или офлайн (по договорённости)</li>
+            </ul>
+            <a class="btn btn-light" href="#contact">Выбрать индивидуально</a>
+          </article>
+
+          <article class="price-card">
+            <h3>Интенсив / экзамен</h3>
+            <p>Ускоренный трек к ОГЭ, ЕГЭ, контрольным и вступительным.</p>
+            <div class="price">от 4&nbsp;200&nbsp;₽ <em>/ 60 мин</em></div>
+            <div class="price-note">Или пакет под дедлайн</div>
+            <ul>
+              <li>Экзаменационная стратегия</li>
+              <li>Пробники и разбор ошибок</li>
+              <li>Фокус на баллах и тайминге</li>
+              <li>Приоритетная запись в сезон</li>
+            </ul>
+            <a class="btn btn-secondary" href="#contact">Обсудить дедлайн</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contact">
+      <div class="container">
+        <div class="cta-box">
+          <h2>Начнём с короткого разговора о цели</h2>
+          <p>
+            Напишите класс, предмет и задачу — например: «11 класс, физика, цель 80+».
+            Ответим по слотам и формату. Без давления и лишней воронки.
+          </p>
+          <div class="cta-actions">
+            <!-- Замените href на реальные ссылки -->
+            <a class="btn btn-light" href="https://t.me/" target="_blank" rel="noopener">Написать в Telegram</a>
+            <a class="btn btn-ghost-light" href="mailto:hello@example.com">E-mail</a>
+          </div>
+          <p class="cta-fine">Контакты-плейсхолдеры · подставим телефон, Telegram и мессенджер Ильи</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> Илья Дар · Репетитор математики, физики и информатики</div>
+      <div>Сайт-портфолио · премиальный формат занятий</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    links.querySelectorAll('a').forEach((a) => {
+      a.addEventListener('click', () => {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+</html>
