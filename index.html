@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="description" content="Илья Дар — репетитор математики, физики и информатики. 6 лет практики, системный подход, измеримый прогресс к экзаменам." />
+  <meta name="description" content="Ильдар Бекмухамбетов — репетитор математики, физики и информатики. АГУ (мехатроника), магистратура КФУ (физика+математика). 5+ лет практики, ОГЭ/ЕГЭ, онлайн." />
   <meta name="theme-color" content="#1B2A3A" />
-  <title>Илья Дар — репетитор математики, физики и информатики</title>
+  <title>Ильдар Бекмухамбетов — репетитор математики, физики и информатики</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Literata:opsz,wght@7..72,500;7..72,600;7..72,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -25,7 +25,6 @@
       --line: rgba(18, 24, 32, 0.1);
       --line-chalk: rgba(243, 239, 230, 0.14);
       --shadow: 0 18px 48px rgba(18, 24, 32, 0.1);
-      --radius: 4px;
       --max: 1140px;
       --nav-h: 64px;
       --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -33,7 +32,6 @@
       --font-body: "Manrope", system-ui, sans-serif;
       --font-mono: "JetBrains Mono", ui-monospace, monospace;
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
@@ -50,245 +48,127 @@
     img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
     button, .btn { font: inherit; cursor: pointer; border: 0; }
-    :focus-visible {
-      outline: 2px solid var(--brass);
-      outline-offset: 3px;
-    }
+    :focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
+    .container { width: min(100% - 40px, var(--max)); margin-inline: auto; }
 
-    .container {
-      width: min(100% - 40px, var(--max));
-      margin-inline: auto;
-    }
-
-    /* Signature: exam score baseline / ruler */
     .score-rail {
-      display: flex;
-      align-items: center;
-      gap: 0;
-      width: 100%;
-      margin: 28px 0 8px;
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--ink-soft);
-      letter-spacing: 0.02em;
-      user-select: none;
+      display: flex; align-items: center; width: 100%;
+      margin: 28px 0 8px; font-family: var(--font-mono); font-size: 11px;
+      color: var(--ink-soft); letter-spacing: 0.02em; user-select: none;
     }
     .score-rail .track {
-      position: relative;
-      flex: 1;
-      height: 1px;
+      position: relative; flex: 1; height: 1px;
       background: linear-gradient(90deg, transparent, var(--brass), transparent);
       margin: 0 10px;
     }
     .score-rail .track::before {
-      content: "";
-      position: absolute;
-      inset: -5px 0 auto;
-      height: 11px;
-      background:
-        repeating-linear-gradient(
-          90deg,
-          var(--brass) 0 1px,
-          transparent 1px 8%
-        );
+      content: ""; position: absolute; inset: -5px 0 auto; height: 11px;
+      background: repeating-linear-gradient(90deg, var(--brass) 0 1px, transparent 1px 8%);
       opacity: 0.55;
     }
-    .score-rail .mark {
-      color: var(--brass);
-      font-weight: 500;
-      white-space: nowrap;
-    }
+    .score-rail .mark { color: var(--brass); font-weight: 500; white-space: nowrap; }
 
-    /* Nav */
     .nav {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      height: var(--nav-h);
+      position: sticky; top: 0; z-index: 50; height: var(--nav-h);
       background: rgba(231, 235, 239, 0.88);
       backdrop-filter: blur(14px) saturate(1.1);
       -webkit-backdrop-filter: blur(14px) saturate(1.1);
       border-bottom: 1px solid var(--line);
     }
     .nav-inner {
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
+      height: 100%; display: flex; align-items: center;
+      justify-content: space-between; gap: 16px;
     }
     .logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-family: var(--font-display);
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      font-size: 18px;
+      display: inline-flex; align-items: center; gap: 12px;
+      font-family: var(--font-display); font-weight: 600;
+      letter-spacing: -0.02em; font-size: 17px;
     }
     .logo-mark {
-      width: 34px;
-      height: 34px;
-      border: 1px solid var(--brass);
-      display: grid;
-      place-items: center;
-      font-family: var(--font-mono);
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--indigo);
+      width: 34px; height: 34px; border: 1px solid var(--brass);
+      display: grid; place-items: center; font-family: var(--font-mono);
+      font-size: 12px; font-weight: 600; color: var(--indigo);
       background: rgba(176, 141, 87, 0.08);
     }
     .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--ink-soft);
+      display: flex; align-items: center; gap: 18px;
+      font-size: 13px; font-weight: 500; color: var(--ink-soft);
     }
     .nav-links a:hover { color: var(--ink); }
     .nav-cta {
-      background: var(--board);
-      color: var(--chalk);
-      padding: 10px 16px;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.01em;
-      transition: background 0.2s var(--ease), transform 0.2s var(--ease);
+      background: var(--board); color: var(--chalk);
+      padding: 10px 16px; font-size: 13px; font-weight: 600;
+      transition: background 0.2s var(--ease);
     }
     .nav-cta:hover { background: var(--indigo); }
     .nav-toggle {
-      display: none;
-      width: 42px;
-      height: 42px;
-      background: transparent;
-      color: var(--ink);
-      font-size: 20px;
+      display: none; width: 42px; height: 42px;
+      background: transparent; color: var(--ink); font-size: 20px;
     }
 
-    /* Buttons */
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 14px 22px;
-      font-weight: 600;
-      font-size: 15px;
-      letter-spacing: 0.01em;
-      transition: transform 0.2s var(--ease), background 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease);
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 8px; padding: 14px 22px; font-weight: 600; font-size: 15px;
+      transition: transform 0.2s var(--ease), background 0.2s var(--ease), border-color 0.2s var(--ease);
     }
     .btn:hover { transform: translateY(-1px); }
-    .btn:active { transform: translateY(0); }
-    .btn-primary {
-      background: var(--indigo);
-      color: #fff;
-    }
+    .btn-primary { background: var(--indigo); color: #fff; }
     .btn-primary:hover { background: #16304f; }
     .btn-secondary {
-      background: transparent;
-      color: var(--ink);
+      background: transparent; color: var(--ink);
       border: 1px solid rgba(18, 24, 32, 0.18);
     }
     .btn-secondary:hover { border-color: var(--brass); color: var(--indigo); }
-    .btn-light {
-      background: var(--chalk);
-      color: var(--board);
-    }
+    .btn-light { background: var(--chalk); color: var(--board); }
     .btn-light:hover { background: #fff; }
     .btn-ghost-light {
-      background: transparent;
-      color: var(--chalk);
+      background: transparent; color: var(--chalk);
       border: 1px solid rgba(243, 239, 230, 0.28);
     }
-    .btn-ghost-light:hover { border-color: var(--brass); color: #fff; }
 
-    /* Hero */
-    .hero {
-      padding: 56px 0 36px;
-    }
+    .hero { padding: 56px 0 36px; }
     .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 28px;
-      align-items: stretch;
+      display: grid; grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px; align-items: stretch;
     }
     .kicker {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--teal);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+      color: var(--teal); letter-spacing: 0.08em; text-transform: uppercase;
       margin-bottom: 18px;
     }
     .hero h1 {
       font-family: var(--font-display);
-      font-size: clamp(36px, 5.6vw, 58px);
-      line-height: 1.06;
-      letter-spacing: -0.03em;
-      font-weight: 600;
-      max-width: 16ch;
-      margin-bottom: 18px;
+      font-size: clamp(34px, 5.2vw, 54px);
+      line-height: 1.06; letter-spacing: -0.03em; font-weight: 600;
+      max-width: 16ch; margin-bottom: 18px;
     }
     .hero-lead {
-      font-size: clamp(17px, 2vw, 19px);
-      color: var(--ink-soft);
-      max-width: 42ch;
-      margin-bottom: 28px;
+      font-size: clamp(17px, 2vw, 19px); color: var(--ink-soft);
+      max-width: 44ch; margin-bottom: 28px;
     }
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 28px;
-    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; }
     .hero-meta {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
-      max-width: 520px;
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px; background: var(--line); border: 1px solid var(--line); max-width: 560px;
     }
-    .hero-meta div {
-      background: rgba(255,255,255,0.55);
-      padding: 16px 14px;
-    }
+    .hero-meta div { background: rgba(255,255,255,0.55); padding: 16px 14px; }
     .hero-meta strong {
-      display: block;
-      font-family: var(--font-mono);
-      font-size: 22px;
-      font-weight: 600;
-      letter-spacing: -0.03em;
-      color: var(--indigo);
-      margin-bottom: 4px;
+      display: block; font-family: var(--font-mono); font-size: 20px;
+      font-weight: 600; letter-spacing: -0.03em; color: var(--indigo); margin-bottom: 4px;
     }
-    .hero-meta span {
-      font-size: 12px;
-      color: var(--ink-soft);
-      line-height: 1.35;
-    }
+    .hero-meta span { font-size: 12px; color: var(--ink-soft); line-height: 1.35; }
 
     .board-panel {
       background:
         radial-gradient(circle at 18% 12%, rgba(176,141,87,0.12), transparent 32%),
         linear-gradient(165deg, var(--board-lift), var(--board) 55%, #14202c);
-      color: var(--chalk);
-      padding: clamp(24px, 3vw, 36px);
-      min-height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 28px;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
+      color: var(--chalk); padding: clamp(20px, 3vw, 28px);
+      min-height: 100%; display: flex; flex-direction: column;
+      justify-content: space-between; gap: 20px;
+      box-shadow: var(--shadow); position: relative; overflow: hidden;
     }
     .board-panel::before {
-      content: "";
-      position: absolute;
-      inset: 0;
+      content: ""; position: absolute; inset: 0;
       background-image:
         linear-gradient(rgba(243,239,230,0.04) 1px, transparent 1px),
         linear-gradient(90deg, rgba(243,239,230,0.04) 1px, transparent 1px);
@@ -298,563 +178,260 @@
     }
     .board-panel > * { position: relative; }
     .goal-label {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(243,239,230,0.55);
-      margin-bottom: 10px;
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(243,239,230,0.55); margin-bottom: 10px;
     }
     .goal-score {
-      font-family: var(--font-display);
-      font-size: clamp(64px, 9vw, 96px);
-      line-height: 0.9;
-      font-weight: 600;
-      letter-spacing: -0.04em;
-      color: #fff;
+      font-family: var(--font-display); font-size: clamp(56px, 8vw, 84px);
+      line-height: 0.9; font-weight: 600; letter-spacing: -0.04em; color: #fff;
     }
     .goal-score em {
-      font-style: normal;
-      color: var(--brass);
-      font-size: 0.42em;
-      vertical-align: super;
-      margin-left: 4px;
+      font-style: normal; color: var(--brass); font-size: 0.42em;
+      vertical-align: super; margin-left: 4px;
     }
     .goal-caption {
-      margin-top: 14px;
-      font-size: 15px;
-      color: rgba(243,239,230,0.72);
-      max-width: 28ch;
-      line-height: 1.45;
+      margin-top: 12px; font-size: 14px; color: rgba(243,239,230,0.72);
+      max-width: 28ch; line-height: 1.45;
+    }
+    .portrait-wrap {
+      border: 1px solid rgba(243,239,230,0.18);
+      overflow: hidden; background: rgba(0,0,0,0.18);
+      aspect-ratio: 4/5; max-height: 340px;
+    }
+    .portrait-wrap img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center top;
     }
     .formula-strip {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      color: rgba(243,239,230,0.5);
-      border-top: 1px solid var(--line-chalk);
-      padding-top: 16px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 18px;
-    }
-    .formula-strip span { white-space: nowrap; }
-    .photo-slot {
-      border: 1px dashed rgba(243,239,230,0.28);
-      padding: 18px;
-      min-height: 120px;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      color: rgba(243,239,230,0.7);
-      font-size: 13px;
-      background: rgba(0,0,0,0.12);
-    }
-    .photo-slot strong {
-      display: block;
-      font-family: var(--font-display);
-      font-size: 16px;
-      color: #fff;
-      margin-bottom: 6px;
-      font-weight: 600;
+      font-family: var(--font-mono); font-size: 12px;
+      color: rgba(243,239,230,0.5); border-top: 1px solid var(--line-chalk);
+      padding-top: 14px; display: flex; flex-wrap: wrap; gap: 10px 18px;
     }
 
-    /* Sections */
     section { padding: 84px 0; }
     .section-label {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--teal);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 14px;
+      font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+      color: var(--teal); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 14px;
     }
     .section-title {
-      font-family: var(--font-display);
-      font-size: clamp(30px, 4.5vw, 46px);
-      letter-spacing: -0.03em;
-      line-height: 1.08;
-      font-weight: 600;
-      max-width: 18ch;
-      margin-bottom: 16px;
+      font-family: var(--font-display); font-size: clamp(30px, 4.5vw, 46px);
+      letter-spacing: -0.03em; line-height: 1.08; font-weight: 600;
+      max-width: 18ch; margin-bottom: 16px;
     }
-    .section-lead {
-      color: var(--ink-soft);
-      font-size: 18px;
-      max-width: 46ch;
-      margin-bottom: 36px;
-    }
+    .section-lead { color: var(--ink-soft); font-size: 18px; max-width: 48ch; margin-bottom: 36px; }
 
-    /* Subjects */
-    .subjects-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
+    .subjects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
     .card {
-      background: rgba(255,255,255,0.62);
-      border: 1px solid var(--line);
-      padding: 28px 24px;
+      background: rgba(255,255,255,0.62); border: 1px solid var(--line); padding: 28px 24px;
       transition: border-color 0.25s var(--ease), transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
     }
-    .card:hover {
-      border-color: rgba(176, 141, 87, 0.55);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
-    }
-    .card-icon {
-      font-family: var(--font-display);
-      font-size: 28px;
-      color: var(--indigo);
-      margin-bottom: 16px;
-      line-height: 1;
-    }
-    .card h3 {
-      font-family: var(--font-display);
-      font-size: 24px;
-      letter-spacing: -0.02em;
-      margin-bottom: 10px;
-      font-weight: 600;
-    }
-    .card p {
-      color: var(--ink-soft);
-      font-size: 15px;
-      line-height: 1.5;
-    }
-    .card ul {
-      margin-top: 18px;
-      list-style: none;
-      display: grid;
-      gap: 9px;
-    }
-    .card li {
-      font-size: 14px;
-      padding-left: 16px;
-      position: relative;
-    }
+    .card:hover { border-color: rgba(176, 141, 87, 0.55); transform: translateY(-2px); box-shadow: var(--shadow); }
+    .card-icon { font-family: var(--font-display); font-size: 28px; color: var(--indigo); margin-bottom: 16px; line-height: 1; }
+    .card h3 { font-family: var(--font-display); font-size: 24px; letter-spacing: -0.02em; margin-bottom: 10px; font-weight: 600; }
+    .card p { color: var(--ink-soft); font-size: 15px; line-height: 1.5; }
+    .card ul { margin-top: 18px; list-style: none; display: grid; gap: 9px; }
+    .card li { font-size: 14px; padding-left: 16px; position: relative; }
     .card li::before {
-      content: "";
-      width: 7px;
-      height: 1px;
-      background: var(--brass);
-      position: absolute;
-      left: 0;
-      top: 0.7em;
+      content: ""; width: 7px; height: 1px; background: var(--brass);
+      position: absolute; left: 0; top: 0.7em;
     }
 
-    /* Method */
     .method {
-      background: var(--board);
-      color: var(--chalk);
-      padding: 84px 0;
-      position: relative;
+      background: var(--board); color: var(--chalk); padding: 84px 0; position: relative;
     }
     .method::before {
-      content: "";
-      position: absolute;
-      inset: 0;
+      content: ""; position: absolute; inset: 0;
       background-image:
         linear-gradient(rgba(243,239,230,0.035) 1px, transparent 1px),
         linear-gradient(90deg, rgba(243,239,230,0.035) 1px, transparent 1px);
-      background-size: 36px 36px;
-      opacity: 0.5;
-      pointer-events: none;
+      background-size: 36px 36px; opacity: 0.5; pointer-events: none;
     }
     .method .container { position: relative; }
     .method .section-label { color: var(--brass); }
     .method .section-title { color: #fff; max-width: 18ch; }
     .method .section-lead { color: rgba(243,239,230,0.68); }
-    .method-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
+    .method-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .method-item {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--line-chalk);
-      padding: 26px 24px;
+      background: rgba(255,255,255,0.04); border: 1px solid var(--line-chalk); padding: 26px 24px;
     }
     .method-item .num {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      color: var(--brass);
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      margin-bottom: 12px;
+      font-family: var(--font-mono); font-size: 12px; color: var(--brass);
+      font-weight: 600; letter-spacing: 0.08em; margin-bottom: 12px;
     }
     .method-item h3 {
-      font-family: var(--font-display);
-      font-size: 22px;
-      letter-spacing: -0.02em;
-      margin-bottom: 10px;
-      font-weight: 600;
-      color: #fff;
+      font-family: var(--font-display); font-size: 22px; letter-spacing: -0.02em;
+      margin-bottom: 10px; font-weight: 600; color: #fff;
     }
-    .method-item p {
-      color: rgba(243,239,230,0.68);
-      font-size: 15px;
-    }
+    .method-item p { color: rgba(243,239,230,0.68); font-size: 15px; }
 
-    /* Results */
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-bottom: 20px;
-    }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
     .stat {
-      background: rgba(255,255,255,0.55);
-      border: 1px solid var(--line);
-      padding: 26px 18px;
-      text-align: left;
+      background: rgba(255,255,255,0.55); border: 1px solid var(--line); padding: 26px 18px; text-align: left;
     }
     .stat strong {
-      display: block;
-      font-family: var(--font-mono);
-      font-size: clamp(28px, 3.6vw, 38px);
-      letter-spacing: -0.04em;
-      margin-bottom: 8px;
-      color: var(--indigo);
-      font-weight: 600;
+      display: block; font-family: var(--font-mono); font-size: clamp(26px, 3.4vw, 36px);
+      letter-spacing: -0.04em; margin-bottom: 8px; color: var(--indigo); font-weight: 600;
     }
-    .stat span {
-      color: var(--ink-soft);
-      font-size: 13px;
-      line-height: 1.35;
-    }
-    .note {
-      font-size: 13px;
-      color: var(--ink-soft);
-      font-family: var(--font-mono);
-    }
+    .stat span { color: var(--ink-soft); font-size: 13px; line-height: 1.35; }
+    .note { font-size: 13px; color: var(--ink-soft); font-family: var(--font-mono); }
 
-    /* Reviews */
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
     .review {
-      background: rgba(255,255,255,0.55);
-      border: 1px solid var(--line);
-      padding: 26px 22px;
-      display: flex;
-      flex-direction: column;
-      min-height: 280px;
+      background: rgba(255,255,255,0.55); border: 1px solid var(--line);
+      padding: 26px 22px; display: flex; flex-direction: column; min-height: 280px;
     }
     .review-tag {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--teal);
-      margin-bottom: 14px;
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--teal); margin-bottom: 14px;
     }
     .review blockquote {
-      font-family: var(--font-display);
-      font-size: 18px;
-      letter-spacing: -0.01em;
-      line-height: 1.4;
-      flex: 1;
-      font-weight: 500;
+      font-family: var(--font-display); font-size: 17px; letter-spacing: -0.01em;
+      line-height: 1.4; flex: 1; font-weight: 500;
     }
     .review footer {
-      margin-top: 22px;
-      padding-top: 16px;
-      border-top: 1px solid var(--line);
-      display: flex;
-      align-items: center;
-      gap: 12px;
+      margin-top: 22px; padding-top: 16px; border-top: 1px solid var(--line);
     }
-    .avatar {
-      width: 40px;
-      height: 40px;
-      border: 1px solid var(--brass-soft);
-      background:
-        linear-gradient(145deg, var(--paper-deep), #c9d0d8);
-      flex-shrink: 0;
-    }
-    .review cite {
-      font-style: normal;
-      font-size: 14px;
-      font-weight: 700;
-      display: block;
-    }
-    .review small {
-      color: var(--ink-soft);
-      font-size: 12px;
-    }
+    .review cite { font-style: normal; font-size: 14px; font-weight: 700; display: block; }
+    .review small { color: var(--ink-soft); font-size: 12px; }
 
-    /* About */
     .about-grid {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 28px;
-      align-items: stretch;
+      display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 28px; align-items: stretch;
     }
     .about-visual {
-      min-height: 420px;
-      background:
-        radial-gradient(circle at 70% 20%, rgba(176,141,87,0.18), transparent 40%),
-        linear-gradient(165deg, var(--board-lift), var(--board));
-      border: 1px solid rgba(18,24,32,0.08);
-      display: flex;
-      align-items: flex-end;
-      padding: 24px;
-      position: relative;
-      overflow: hidden;
+      min-height: 420px; position: relative; overflow: hidden;
+      border: 1px solid rgba(18,24,32,0.08); background: var(--board);
     }
-    .about-visual::before {
-      content: "∫  ∇  ∑  ∂  λ  π";
-      position: absolute;
-      top: 28px;
-      left: 24px;
-      right: 24px;
-      font-family: var(--font-mono);
-      font-size: 13px;
-      letter-spacing: 0.28em;
-      color: rgba(243,239,230,0.28);
-    }
+    .about-visual img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
     .about-badge {
-      background: rgba(243,239,230,0.94);
-      border-left: 3px solid var(--brass);
-      padding: 18px 18px 18px 16px;
-      width: 100%;
+      position: absolute; left: 16px; right: 16px; bottom: 16px;
+      background: rgba(243,239,230,0.94); border-left: 3px solid var(--brass);
+      padding: 16px 16px 16px 14px;
     }
     .about-badge strong {
-      display: block;
-      font-family: var(--font-display);
-      font-size: 18px;
-      margin-bottom: 4px;
-      font-weight: 600;
+      display: block; font-family: var(--font-display); font-size: 17px;
+      margin-bottom: 4px; font-weight: 600;
     }
-    .about-badge span {
-      color: var(--ink-soft);
-      font-size: 13px;
-    }
-    .about-list {
-      list-style: none;
-      display: grid;
-      gap: 10px;
-      margin-top: 8px;
-    }
+    .about-badge span { color: var(--ink-soft); font-size: 13px; }
+    .about-list { list-style: none; display: grid; gap: 10px; margin-top: 8px; }
     .about-list li {
-      background: rgba(255,255,255,0.55);
-      border: 1px solid var(--line);
-      padding: 16px 18px;
-      font-size: 15px;
-      color: var(--ink-soft);
+      background: rgba(255,255,255,0.55); border: 1px solid var(--line);
+      padding: 16px 18px; font-size: 15px; color: var(--ink-soft);
     }
-    .about-list strong {
-      display: block;
-      color: var(--ink);
-      margin-bottom: 4px;
-      font-size: 15px;
-      font-weight: 700;
-    }
+    .about-list strong { display: block; color: var(--ink); margin-bottom: 4px; font-size: 15px; font-weight: 700; }
 
-    /* Pricing */
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      align-items: stretch;
+    .edu-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px;
     }
+    .edu-card {
+      background: rgba(255,255,255,0.55); border: 1px solid var(--line); padding: 16px 18px;
+    }
+    .edu-card strong {
+      display: block; font-family: var(--font-mono); font-size: 12px;
+      color: var(--teal); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px;
+    }
+    .edu-card span { font-size: 14px; color: var(--ink); line-height: 1.4; }
+
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
     .price-card {
-      background: rgba(255,255,255,0.55);
-      border: 1px solid var(--line);
-      padding: 28px 24px;
-      display: flex;
-      flex-direction: column;
-      position: relative;
+      background: rgba(255,255,255,0.55); border: 1px solid var(--line);
+      padding: 28px 24px; display: flex; flex-direction: column; position: relative;
     }
     .price-card.featured {
-      background: var(--board);
-      color: var(--chalk);
-      border-color: transparent;
-      box-shadow: var(--shadow);
+      background: var(--board); color: var(--chalk); border-color: transparent; box-shadow: var(--shadow);
     }
-    .price-card.featured p,
-    .price-card.featured li {
-      color: rgba(243,239,230,0.68);
-    }
-    .price-card.featured h3,
-    .price-card.featured .price {
-      color: #fff;
-    }
+    .price-card.featured p, .price-card.featured li { color: rgba(243,239,230,0.68); }
+    .price-card.featured h3, .price-card.featured .price { color: #fff; }
     .badge {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      background: var(--brass);
-      color: var(--board);
-      font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 6px 9px;
+      position: absolute; top: 16px; right: 16px; background: var(--brass); color: var(--board);
+      font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase; padding: 6px 9px;
     }
     .price-card h3 {
-      font-family: var(--font-display);
-      font-size: 22px;
-      margin-bottom: 8px;
-      letter-spacing: -0.02em;
-      font-weight: 600;
+      font-family: var(--font-display); font-size: 22px; margin-bottom: 8px;
+      letter-spacing: -0.02em; font-weight: 600;
     }
-    .price-card > p {
-      color: var(--ink-soft);
-      font-size: 14px;
-      min-height: 44px;
-      margin-bottom: 18px;
-    }
+    .price-card > p { color: var(--ink-soft); font-size: 14px; min-height: 44px; margin-bottom: 18px; }
     .price {
-      font-family: var(--font-mono);
-      font-size: 30px;
-      letter-spacing: -0.04em;
-      font-weight: 600;
-      margin-bottom: 4px;
-      color: var(--indigo);
+      font-family: var(--font-mono); font-size: 30px; letter-spacing: -0.04em;
+      font-weight: 600; margin-bottom: 4px; color: var(--indigo);
     }
-    .price em {
-      font-style: normal;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--ink-soft);
-    }
+    .price em { font-style: normal; font-size: 13px; font-weight: 500; color: var(--ink-soft); }
     .price-card.featured .price em { color: rgba(243,239,230,0.55); }
-    .price-note {
-      font-size: 12px;
-      color: var(--ink-soft);
-      margin-bottom: 20px;
-      font-family: var(--font-mono);
-    }
+    .price-note { font-size: 12px; color: var(--ink-soft); margin-bottom: 20px; font-family: var(--font-mono); }
     .price-card.featured .price-note { color: rgba(243,239,230,0.5); }
-    .price-card ul {
-      list-style: none;
-      display: grid;
-      gap: 10px;
-      margin-bottom: 26px;
-      flex: 1;
-    }
+    .price-card ul { list-style: none; display: grid; gap: 10px; margin-bottom: 26px; flex: 1; }
     .price-card li {
-      font-size: 14px;
-      padding-left: 16px;
-      position: relative;
-      color: var(--ink-soft);
+      font-size: 14px; padding-left: 16px; position: relative; color: var(--ink-soft);
     }
     .price-card li::before {
-      content: "";
-      width: 7px;
-      height: 1px;
-      background: var(--brass);
-      position: absolute;
-      left: 0;
-      top: 0.7em;
+      content: ""; width: 7px; height: 1px; background: var(--brass);
+      position: absolute; left: 0; top: 0.7em;
     }
     .price-card .btn { width: 100%; }
 
-    /* CTA */
-    .cta {
-      padding-top: 24px;
-      padding-bottom: 96px;
+    .platforms {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;
     }
+    .chip {
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em;
+      border: 1px solid var(--line); padding: 6px 10px; color: var(--ink-soft);
+      background: rgba(255,255,255,0.5);
+    }
+
+    .cta { padding-top: 24px; padding-bottom: 96px; }
     .cta-box {
       background:
         radial-gradient(circle at 88% 12%, rgba(176,141,87,0.18), transparent 28%),
         linear-gradient(150deg, #14202c, var(--board) 55%, #101820);
-      color: #fff;
-      padding: clamp(40px, 6vw, 68px);
-      text-align: left;
+      color: #fff; padding: clamp(40px, 6vw, 68px);
       border: 1px solid rgba(243,239,230,0.08);
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 28px;
-      align-items: end;
+      display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 28px; align-items: end;
     }
     .cta-box h2 {
-      font-family: var(--font-display);
-      font-size: clamp(30px, 4.5vw, 46px);
-      letter-spacing: -0.03em;
-      line-height: 1.08;
-      max-width: 14ch;
-      margin-bottom: 14px;
-      font-weight: 600;
+      font-family: var(--font-display); font-size: clamp(30px, 4.5vw, 46px);
+      letter-spacing: -0.03em; line-height: 1.08; max-width: 14ch;
+      margin-bottom: 14px; font-weight: 600;
     }
-    .cta-box p {
-      color: rgba(243,239,230,0.68);
-      font-size: 17px;
-      max-width: 40ch;
-    }
-    .cta-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-    .cta-fine {
-      font-size: 12px;
-      color: rgba(255,255,255,0.45);
-      font-family: var(--font-mono);
-    }
+    .cta-box p { color: rgba(243,239,230,0.68); font-size: 17px; max-width: 40ch; }
+    .cta-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 12px; }
+    .cta-fine { font-size: 12px; color: rgba(255,255,255,0.45); font-family: var(--font-mono); }
 
-    /* Footer */
+    .sources {
+      margin-top: 28px; font-size: 12px; color: var(--ink-soft); font-family: var(--font-mono);
+    }
+    .sources a { text-decoration: underline; text-underline-offset: 2px; }
+
     footer {
-      border-top: 1px solid var(--line);
-      padding: 28px 0 40px;
-      color: var(--ink-soft);
-      font-size: 13px;
+      border-top: 1px solid var(--line); padding: 28px 0 40px;
+      color: var(--ink-soft); font-size: 13px;
     }
     .footer-inner {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px 24px;
-      justify-content: space-between;
-      align-items: center;
+      display: flex; flex-wrap: wrap; gap: 12px 24px;
+      justify-content: space-between; align-items: center;
     }
 
     @media (max-width: 960px) {
-      .hero-grid,
-      .subjects-grid,
-      .method-grid,
-      .stats,
-      .reviews-grid,
-      .about-grid,
-      .pricing-grid,
-      .cta-box {
-        grid-template-columns: 1fr;
-      }
+      .hero-grid, .subjects-grid, .method-grid, .stats, .reviews-grid,
+      .about-grid, .pricing-grid, .cta-box, .edu-row { grid-template-columns: 1fr; }
       .hero-meta { grid-template-columns: 1fr; max-width: none; }
       .nav-links {
-        position: fixed;
-        inset: var(--nav-h) 12px auto;
-        background: rgba(231, 235, 239, 0.98);
-        border: 1px solid var(--line);
-        padding: 12px;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 2px;
-        display: none;
-        box-shadow: var(--shadow);
+        position: fixed; inset: var(--nav-h) 12px auto;
+        background: rgba(231, 235, 239, 0.98); border: 1px solid var(--line);
+        padding: 12px; flex-direction: column; align-items: stretch; gap: 2px;
+        display: none; box-shadow: var(--shadow);
       }
       .nav-links.open { display: flex; }
       .nav-links a { padding: 12px 10px; }
       .nav-toggle { display: grid; place-items: center; }
       .nav-cta { text-align: center; }
       section, .method { padding: 64px 0; }
-      body {
-        background: var(--paper);
-      }
+      body { background: var(--paper); }
     }
-
     @media (max-width: 560px) {
       .container { width: min(100% - 28px, var(--max)); }
       .hero { padding-top: 40px; }
-      .hero-actions .btn,
-      .cta-actions .btn { width: 100%; }
+      .hero-actions .btn, .cta-actions .btn { width: 100%; }
       .card, .review, .price-card { padding: 22px 18px; }
     }
-
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .card, .btn, .nav-cta { transition: none; }
@@ -865,17 +442,17 @@
   <header class="nav">
     <div class="container nav-inner">
       <a class="logo" href="#top">
-        <span class="logo-mark" aria-hidden="true">ID</span>
-        Илья Дар
+        <span class="logo-mark" aria-hidden="true">IB</span>
+        Ильдар Бекмухамбетов
       </a>
       <button class="nav-toggle" id="navToggle" aria-label="Меню" aria-expanded="false">☰</button>
       <nav class="nav-links" id="navLinks">
         <a href="#subjects">Предметы</a>
         <a href="#method">Подход</a>
-        <a href="#results">Результаты</a>
+        <a href="#results">Цифры</a>
         <a href="#reviews">Отзывы</a>
-        <a href="#pricing">Форматы</a>
-        <a class="nav-cta" href="#contact">Записаться</a>
+        <a href="#pricing">Цены</a>
+        <a class="nav-cta" href="#contact">Написать</a>
       </nav>
     </div>
   </header>
@@ -884,62 +461,59 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <div class="kicker">Репетитор · 6 лет практики · точные науки</div>
-          <h1>Математика, физика и информатика на уровне результата</h1>
+          <div class="kicker">Репетитор · АГУ + магистратура КФУ · онлайн</div>
+          <h1>Математика, физика и информатика — с пониманием, а не зубрёжкой</h1>
           <p class="hero-lead">
-            Спокойная, точная работа с учениками, которым нужны не «ещё одни занятия»,
-            а понятная система, рост оценок и уверенность на экзаменах.
+            Ильдар Бекмухамбетов готовит к ОГЭ/ЕГЭ и подтягивает 7–11 класс.
+            Показывает, откуда берутся формулы, и как решать задачи самостоятельно —
+            на онлайн-доске в Telegram, Телемосте или Discord.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#contact">Обсудить запрос</a>
-            <a class="btn btn-secondary" href="#method">Как я работаю</a>
+            <a class="btn btn-primary" href="https://t.me/A1GEBR0" target="_blank" rel="noopener">Написать в Telegram</a>
+            <a class="btn btn-secondary" href="#method">Как проходят занятия</a>
           </div>
           <div class="hero-meta">
             <div>
-              <strong>6 лет</strong>
-              <span>репетиторства</span>
+              <strong>5+ лет</strong>
+              <span>преподавательского опыта</span>
             </div>
             <div>
-              <strong>3</strong>
-              <span>ключевых предмета</span>
+              <strong>от 2&nbsp;000&nbsp;₽</strong>
+              <span>за 60 минут онлайн</span>
             </div>
             <div>
-              <strong>1:1</strong>
-              <span>и мини-группы</span>
+              <strong>5,0</strong>
+              <span>рейтинг на площадках</span>
             </div>
           </div>
         </div>
 
-        <aside class="board-panel" aria-label="Акцент: цель и профиль">
+        <aside class="board-panel" aria-label="Ильдар Бекмухамбетов">
           <div>
-            <div class="goal-label">Рабочая шкала · цель</div>
-            <div class="goal-score">80<em>+</em></div>
+            <div class="goal-label">Цель · измеримый прогресс</div>
+            <div class="goal-score">понимание<em>→</em></div>
             <p class="goal-caption">
-              Не лозунг, а ориентир: диагностика, траектория и практика,
-              где прогресс видно в баллах и пробниках.
+              «Хочу, чтобы каждый ученик понимал, как работает наука, а не бездумно заучивал.»
             </p>
           </div>
-          <div class="photo-slot">
-            <div>
-              <strong>Фото Ильи</strong>
-              Портрет преподавателя — сюда.<br />Пока: «доска» как рабочее место.
-            </div>
+          <div class="portrait-wrap">
+            <img src="assets/ildar-portrait.jpg" width="538" height="717" alt="Ильдар Бекмухамбетов — репетитор математики, физики и информатики" />
           </div>
           <div class="formula-strip" aria-hidden="true">
-            <span>f(x) → limit</span>
-            <span>F = ma</span>
-            <span>O(n log n)</span>
-            <span>EGE / OGE</span>
+            <span>ОГЭ / ЕГЭ</span>
+            <span>7–11 класс</span>
+            <span>олимпиады</span>
+            <span>онлайн-доска</span>
           </div>
         </aside>
       </div>
       <div class="container">
         <div class="score-rail" aria-hidden="true">
-          <span class="mark">0</span>
+          <span class="mark">диагностика</span>
           <div class="track"></div>
-          <span class="mark">цель 80+</span>
+          <span class="mark">система</span>
           <div class="track"></div>
-          <span class="mark">100</span>
+          <span class="mark">самостоятельное решение</span>
         </div>
       </div>
     </section>
@@ -947,54 +521,40 @@
     <section id="subjects">
       <div class="container">
         <div class="section-label">Предметы</div>
-        <h2 class="section-title">Три дисциплины. Одна планка качества.</h2>
+        <h2 class="section-title">Три дисциплины. Один стандарт объяснения.</h2>
         <p class="section-lead">
-          Не «всё понемногу», а глубокая связка предметов, где логика, точность и
-          системное мышление усиливают друг друга.
+          Математика, физика и информатика — от школьной программы до экзамена и олимпиад.
+          Уровень подстраивается: от «закрыть пробелы» до «уверенный балл».
         </p>
-
         <div class="subjects-grid">
           <article class="card">
             <div class="card-icon">∑</div>
             <h3>Математика</h3>
-            <p>
-              От школьной программы до уверенной подготовки к контрольным, ОГЭ/ЕГЭ
-              и вступительным. Учим не зубрить, а видеть структуру задачи.
-            </p>
+            <p>Алгебра, геометрия, тригонометрия, начала анализа. Подготовка к ОГЭ/ЕГЭ и контрольным.</p>
             <ul>
-              <li>Алгебра, геометрия, начала анализа</li>
-              <li>Закрытие пробелов без стыда и гонки</li>
+              <li>Структура задачи, а не шаблон «подставь»</li>
+              <li>Закрытие пробелов 7–11 класса</li>
               <li>Экзаменационная техника и тайминг</li>
             </ul>
           </article>
-
           <article class="card">
             <div class="card-icon">ƒ</div>
             <h3>Физика</h3>
-            <p>
-              Предмет, который «оживает», когда формулы связаны с смыслом.
-              Разбираем механику, электричество, оптику и термодинамику так,
-              чтобы задачи перестали быть набором фокусов.
-            </p>
+            <p>Механика, электричество, оптика, термодинамика — с доказательствами и аналогиями из жизни.</p>
             <ul>
-              <li>Понимание моделей, а не только формул</li>
-              <li>Типовые ловушки на экзаменах</li>
-              <li>Связка с математикой для сложных задач</li>
+              <li>Модели вместо зубрёжки формул</li>
+              <li>ОГЭ / ЕГЭ и экзамены в вузе / техникуме</li>
+              <li>Связка с математикой на сложных задачах</li>
             </ul>
           </article>
-
           <article class="card">
             <div class="card-icon">{/div>
             <h3>Информатика</h3>
-            <p>
-              Логика, алгоритмы, программирование и подготовка к экзаменам.
-              Для тех, кто хочет не только сдать, но и уверенно мыслить
-              «как инженер».
-            </p>
+            <p>Алгоритмы, логика, программирование и подготовка к ОГЭ/ЕГЭ по информатике.</p>
             <ul>
-              <li>Алгоритмы, структуры, Python / основы кода</li>
-              <li>Подготовка к ОГЭ/ЕГЭ по информатике</li>
-              <li>Аккуратная база для IT-направления</li>
+              <li>База «как мыслит инженер»</li>
+              <li>Python и основы кода</li>
+              <li>Экзаменационные форматы</li>
             </ul>
           </article>
         </div>
@@ -1003,147 +563,140 @@
 
     <section class="method" id="method">
       <div class="container">
-        <div class="section-label">Метод</div>
-        <h2 class="section-title">Экспертность — это не харизма. Это система.</h2>
+        <div class="section-label">Подход</div>
+        <h2 class="section-title">Сначала смысл. Потом скорость.</h2>
         <p class="section-lead">
-          За 6 лет репетиторства и работы в школе сложился понятный процесс:
-          диагностика → план → практика → контроль. Без хаоса, без «поговорили и забыли».
+          Из анкеты Ильдара: показать, откуда берутся формулы и свойства, объяснить,
+          почему работает именно так. Практика закрепляет понимание — не заменяет его.
         </p>
-
         <div class="method-grid">
           <article class="method-item">
             <div class="num">ШАГ 01 · вход</div>
-            <h3>Точная диагностика</h3>
-            <p>
-              На старте выясняем не только «какой балл нужен», но и где реально
-              проседает фундамент. Это экономит месяцы бессмысленного повторения
-              уже знакомого материала.
-            </p>
+            <h3>Уровень и цель</h3>
+            <p>Смотрим класс, предмет, дедлайн (ОГЭ/ЕГЭ/контрольная/пересдача) и реальные пробелы — без лишней воды.</p>
           </article>
           <article class="method-item">
-            <div class="num">ШАГ 02 · маршрут</div>
-            <h3>Индивидуальная траектория</h3>
-            <p>
-              План занятий строится под цель: подтянуть четверть, сдать экзамен,
-              выйти на высокий балл или выровнять пробелы после смены школы.
-              Родители всегда понимают, куда мы идём.
-            </p>
+            <div class="num">ШАГ 02 · смысл</div>
+            <h3>Объяснение «почему»</h3>
+            <p>Формулы и свойства выводятся, а не выдаются списком. Аналогии и жизненные ситуации — там, где они помогают.</p>
           </article>
           <article class="method-item">
-            <div class="num">ШАГ 03 · работа</div>
-            <h3>Плотная практика</h3>
-            <p>
-              Теория — коротко и по делу. Основное время — на задачи, разбор ошибок
-              и формирование «мышцы» самостоятельного решения. Ученик уходит с
-              ощущением: «я могу повторить это без подсказки».
-            </p>
+            <div class="num">ШАГ 03 · практика</div>
+            <h3>Решение на доске</h3>
+            <p>Основное время — задачи. Ученик должен уметь повторить ход мысли без подсказки, а не «вспомнить разбор».</p>
           </article>
           <article class="method-item">
-            <div class="num">ШАГ 04 · контроль</div>
-            <h3>Прозрачный прогресс</h3>
-            <p>
-              Фиксируем результаты: темы закрыты, типы задач освоены, пробники
-              выросли. Это формат для семей, которым важна ответственность
-              преподавателя, а не просто «приятные занятия».
-            </p>
+            <div class="num">ШАГ 04 · формат</div>
+            <h3>Онлайн без трения</h3>
+            <p>Дистанционно, онлайн-доска, платформа на выбор: Telegram, Яндекс.Телемост, Discord. 60 или 90 минут.</p>
           </article>
         </div>
-
-        <div class="score-rail" aria-hidden="true" style="margin-top:36px;color:rgba(243,239,230,0.45)">
-          <span class="mark">диагностика</span>
-          <div class="track"></div>
-          <span class="mark">план</span>
-          <div class="track"></div>
-          <span class="mark">практика</span>
-          <div class="track"></div>
-          <span class="mark">балл</span>
+        <div class="platforms" style="margin-top:28px">
+          <span class="chip" style="color:#F3EFE6;border-color:rgba(243,239,230,0.2);background:rgba(255,255,255,0.06)">Telegram</span>
+          <span class="chip" style="color:#F3EFE6;border-color:rgba(243,239,230,0.2);background:rgba(255,255,255,0.06)">Яндекс.Телемост</span>
+          <span class="chip" style="color:#F3EFE6;border-color:rgba(243,239,230,0.2);background:rgba(255,255,255,0.06)">Discord</span>
+          <span class="chip" style="color:#F3EFE6;border-color:rgba(243,239,230,0.2);background:rgba(255,255,255,0.06)">Онлайн-доска</span>
         </div>
       </div>
     </section>
 
     <section id="results">
       <div class="container">
-        <div class="section-label">Результаты</div>
-        <h2 class="section-title">Цифры, которые говорят громче обещаний</h2>
+        <div class="section-label">Цифры и статусы</div>
+        <h2 class="section-title">Что уже видно с площадок</h2>
         <p class="section-lead">
-          Ниже — каркас блока. Когда пришлёте реальные метрики и кейсы учеников,
-          заменим плейсхолдеры на точные формулировки без воды.
+          Сводка по публичным профилям. Детальные кейсы «был X → стал Y» можно добавить
+          отдельным блоком, когда Ильдар пришлёт согласованные цифры учеников.
         </p>
-
         <div class="stats">
           <div class="stat">
-            <strong>6+</strong>
-            <span>лет репетиторской практики</span>
+            <strong>5+</strong>
+            <span>лет опыта (частные центры, лицей, 1:1)</span>
           </div>
           <div class="stat">
-            <strong>—</strong>
-            <span>средний рост балла (плейсхолдер)</span>
+            <strong>5,0</strong>
+            <span>Profi.ru / Яндекс Услуги</span>
           </div>
           <div class="stat">
-            <strong>—</strong>
-            <span>успешных кейсов ЕГЭ/ОГЭ (плейсхолдер)</span>
+            <strong>4,5</strong>
+            <span>Repetit.ru · 12 отзывов</span>
           </div>
           <div class="stat">
-            <strong>100%</strong>
-            <span>фокус на измеримом прогрессе</span>
+            <strong>2&nbsp;000&nbsp;₽</strong>
+            <span>базовая ставка / 60 мин</span>
           </div>
         </div>
-        <p class="note">* Блок будет обновлён реальными результатами учеников и цифрами из отзывов.</p>
+        <p class="note">Источники: Profi.ru, Яндекс Услуги, Repetit.ru · паспорт и диплом подтверждены на площадках</p>
       </div>
     </section>
 
     <section id="reviews">
       <div class="container">
         <div class="section-label">Отзывы</div>
-        <h2 class="section-title">Доверие строится на чужих результатах</h2>
+        <h2 class="section-title">Что говорят родители и ученики</h2>
         <p class="section-lead">
-          Сейчас — стилистические заглушки. Пришлите живые отзывы родителей и учеников:
-          вставим текст, имена (или инициалы) и, при желании, фото.
+          Фрагменты с публичных площадок (формулировки слегка выровнены для чтения,
+          смысл сохранён). Полные тексты — в профилях.
         </p>
-
         <div class="reviews-grid">
           <article class="review">
-            <div class="review-tag">Математика</div>
+            <div class="review-tag">Математика · 11 класс · ЕГЭ</div>
             <blockquote>
-              «Заглушка отзыва. Здесь будет реальный текст родителя: как изменились
-              оценки, дисциплина подготовки и отношение ребёнка к предмету.»
+              «Очень положительный отзыв. Сын хвалит репетитора, говорит, что начал больше понимать. Идёт подготовка к ЕГЭ по математике.»
             </blockquote>
             <footer>
-              <div class="avatar" aria-hidden="true"></div>
-              <div>
-                <cite>Имя родителя</cite>
-                <small>10 класс · плейсхолдер</small>
-              </div>
+              <cite>Наида</cite>
+              <small>Repetit.ru · апрель 2022</small>
             </footer>
           </article>
-
           <article class="review">
-            <div class="review-tag">Физика</div>
+            <div class="review-tag">Математика · 9 класс</div>
             <blockquote>
-              «Заглушка отзыва. Здесь — история про физику: пробелы, которые закрыли,
-              и спокойствие перед контрольной / экзаменом.»
+              «Ничего отрицательного не могу сказать. Сыну очень нравится преподаватель. Они нашли общий язык. Объясняет материал на доступном языке.»
             </blockquote>
             <footer>
-              <div class="avatar" aria-hidden="true"></div>
-              <div>
-                <cite>Имя родителя</cite>
-                <small>9–11 класс · плейсхолдер</small>
-              </div>
+              <cite>Татьяна</cite>
+              <small>Repetit.ru · февраль 2024</small>
             </footer>
           </article>
-
           <article class="review">
-            <div class="review-tag">Информатика</div>
+            <div class="review-tag">ЕГЭ · доходчивость</div>
             <blockquote>
-              «Заглушка отзыва. Здесь — про информатику: от «ничего не понимаю» к
-              уверенному решению типовых и усложнённых задач.»
+              «Отличный репетитор и хороший человек. Подготавливает дочь к ЕГЭ. Доходчиво всё объясняет. Занимаемся по сей день.»
             </blockquote>
             <footer>
-              <div class="avatar" aria-hidden="true"></div>
-              <div>
-                <cite>Ученик / родитель</cite>
-                <small>плейсхолдер</small>
-              </div>
+              <cite>Зарина</cite>
+              <small>Repetit.ru · январь 2022</small>
+            </footer>
+          </article>
+          <article class="review">
+            <div class="review-tag">Пересдача · техникум</div>
+            <blockquote>
+              «Прекрасный преподаватель. Занимался с сыном к пересдаче экзамена в техникуме. Экзамен сдан успешно.»
+            </blockquote>
+            <footer>
+              <cite>Наталья</cite>
+              <small>Repetit.ru · апрель 2022</small>
+            </footer>
+          </article>
+          <article class="review">
+            <div class="review-tag">Понятность</div>
+            <blockquote>
+              «Ребёнку всё понятно; если есть сложности, объяснения идут так, что материал доходит. Всё очень доходчиво.»
+            </blockquote>
+            <footer>
+              <cite>Марина</cite>
+              <small>Repetit.ru · июнь 2021</small>
+            </footer>
+          </article>
+          <article class="review">
+            <div class="review-tag">Подход</div>
+            <blockquote>
+              «Очень хороший репетитор, досконально всё объясняет, всегда идёт навстречу, понимающий — в общем, отличный человек.»
+            </blockquote>
+            <footer>
+              <cite>Надежда</cite>
+              <small>Repetit.ru · май 2021</small>
             </footer>
           </article>
         </div>
@@ -1153,95 +706,103 @@
     <section id="about">
       <div class="container about-grid">
         <div class="about-visual">
+          <img src="assets/ildar-portrait.jpg" width="538" height="717" alt="Портрет Ильдара Бекмухамбетова" />
           <div class="about-badge">
-            <strong>Школа + репетиторство</strong>
-            <span>Опыт классной динамики и индивидуальной глубины</span>
+            <strong>Ильдар Ренатович Бекмухамбетов</strong>
+            <span>Репетитор · онлайн · 24–25 лет</span>
           </div>
         </div>
         <div>
           <div class="section-label">О преподавателе</div>
-          <h2 class="section-title">Почему с Ильёй комфортно семьям «выше среднего»</h2>
+          <h2 class="section-title">Инженерная база + педагогический трек</h2>
           <p class="section-lead" style="margin-bottom: 20px;">
-            Это не масс-маркет «дешёвый час». И не VIP-коучинг за космические деньги.
-            Это аккуратный премиальный формат: уважение к времени, взрослый разговор
-            с родителем и требовательная, но бережная работа с учеником.
+            Закончил физико-технический факультет АГУ по специальности
+            «Мехатроника и робототехника». Сейчас — магистрант КФУ, педагогическое
+            образование по профилям физика и математика. Преподавал в частном центре
+            (физика и математика, группы) и в лицее им. Лобачевского при КФУ.
           </p>
           <ul class="about-list">
             <li>
-              <strong>Опыт в школе</strong>
-              Понимает, как устроена реальная программа, контрольные и «что на самом деле спрашивают».
+              <strong>Понимание вместо заучивания</strong>
+              «Показываю, откуда берутся формулы и свойства, объясняю, почему работает именно так.»
             </li>
             <li>
-              <strong>6 лет репетиторства</strong>
-              Умеет выстраивать долгий путь: от тревоги и каши в голове — к системе и результату.
+              <strong>Разный уровень учеников</strong>
+              Школьники 7–11, студенты; подтянуть курс, ОГЭ/ЕГЭ, олимпиады, пересдачи.
             </li>
             <li>
-              <strong>Три предмета — один стандарт</strong>
-              Математика, физика, информатика без размытия качества и «универсального дилетантства».
-            </li>
-            <li>
-              <strong>Коммуникация без тумана</strong>
-              Родитель получает понятный статус: что уже закрыто, что в работе, где зона риска.
+              <strong>Дистанционный формат</strong>
+              Онлайн-доска, удобная платформа, занятия 60 или 90 минут.
             </li>
           </ul>
+          <div class="edu-row">
+            <div class="edu-card">
+              <strong>АГУ · бакалавр</strong>
+              <span>Мехатроника и робототехника · физико-технический факультет</span>
+            </div>
+            <div class="edu-card">
+              <strong>КФУ · магистратура</strong>
+              <span>Педагогическое образование: физика + математика</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="pricing">
       <div class="container">
-        <div class="section-label">Форматы</div>
-        <h2 class="section-title">Прозрачные форматы. Честный уровень.</h2>
+        <div class="section-label">Цены и форматы</div>
+        <h2 class="section-title">Прозрачная ставка. Онлайн.</h2>
         <p class="section-lead">
-          Цены-плейсхолдеры — ориентир сегмента «выше среднего / premium».
-          После согласования с Ильёй поставим финальные цифры и пакеты.
+          Базовая цена с Profi.ru / Яндекс Услуг / Repetit.ru — <strong>2&nbsp;000&nbsp;₽ / 60&nbsp;мин</strong>.
+          Пакеты и 90-минутные слоты — по договорённости в Telegram.
         </p>
-
         <div class="pricing-grid">
           <article class="price-card">
-            <h3>Диагностика</h3>
-            <p>Стартовая встреча: цель, уровень, план на 4–8 недель.</p>
-            <div class="price">от 2&nbsp;500&nbsp;₽ <em>/ 60–75 мин</em></div>
-            <div class="price-note">Можно зачесть в пакет при продолжении</div>
+            <h3>Знакомство</h3>
+            <p>Короткий созвон: предмет, класс, цель, удобное время.</p>
+            <div class="price">0&nbsp;₽ <em>/ переписка</em></div>
+            <div class="price-note">Через @A1GEBR0</div>
             <ul>
-              <li>Разбор текущего уровня</li>
-              <li>Карта пробелов</li>
-              <li>Рекомендации по формату</li>
-              <li>Понятный next step</li>
+              <li>Класс и предмет</li>
+              <li>Дедлайн (экзамен / четверть)</li>
+              <li>Формат 60 или 90 мин</li>
             </ul>
-            <a class="btn btn-secondary" href="#contact">Запросить слот</a>
+            <a class="btn btn-secondary" href="https://t.me/A1GEBR0" target="_blank" rel="noopener">Написать</a>
           </article>
-
           <article class="price-card featured">
-            <div class="badge">Частый выбор</div>
-            <h3>Индивидуально</h3>
-            <p>Основной формат для серьёзного прогресса в одном предмете.</p>
-            <div class="price">от 3&nbsp;500&nbsp;₽ <em>/ 60 мин</em></div>
-            <div class="price-note">Пакеты 8 / 12 занятий — выгоднее</div>
+            <div class="badge">Основной</div>
+            <h3>Индивидуально онлайн</h3>
+            <p>Основной формат: разбор + практика на онлайн-доске.</p>
+            <div class="price">2&nbsp;000&nbsp;₽ <em>/ 60 мин</em></div>
+            <div class="price-note">Математика · физика · информатика</div>
             <ul>
               <li>Персональная программа</li>
-              <li>Домашние задания с проверкой</li>
-              <li>Связь между занятиями</li>
-              <li>Отчётность для родителей</li>
-              <li>Онлайн или офлайн (по договорённости)</li>
+              <li>ОГЭ / ЕГЭ / школьный курс</li>
+              <li>Telegram / Телемост / Discord</li>
+              <li>Онлайн-доска</li>
             </ul>
-            <a class="btn btn-light" href="#contact">Выбрать индивидуально</a>
+            <a class="btn btn-light" href="https://t.me/A1GEBR0" target="_blank" rel="noopener">Записаться</a>
           </article>
-
           <article class="price-card">
-            <h3>Интенсив / экзамен</h3>
-            <p>Ускоренный трек к ОГЭ, ЕГЭ, контрольным и вступительным.</p>
-            <div class="price">от 4&nbsp;200&nbsp;₽ <em>/ 60 мин</em></div>
-            <div class="price-note">Или пакет под дедлайн</div>
+            <h3>Слот 90 минут</h3>
+            <p>Когда нужно больше практики подряд — экзамен, интенсив, пересдача.</p>
+            <div class="price">по запросу <em>/ 90 мин</em></div>
+            <div class="price-note">Уточнить в Telegram</div>
             <ul>
-              <li>Экзаменационная стратегия</li>
+              <li>Плотная практика</li>
               <li>Пробники и разбор ошибок</li>
-              <li>Фокус на баллах и тайминге</li>
-              <li>Приоритетная запись в сезон</li>
+              <li>Под дедлайн</li>
             </ul>
-            <a class="btn btn-secondary" href="#contact">Обсудить дедлайн</a>
+            <a class="btn btn-secondary" href="https://t.me/A1GEBR0" target="_blank" rel="noopener">Обсудить</a>
           </article>
         </div>
+        <p class="sources">
+          Профили:
+          <a href="https://profi.ru/profile/BekmuhambetovIR/" target="_blank" rel="noopener">Profi.ru</a> ·
+          <a href="https://uslugi.yandex.ru/profile/IldarBekmukhambetov-617530" target="_blank" rel="noopener">Яндекс Услуги</a> ·
+          <a href="https://kzn.repetit.ru/repetitor.aspx?id=202338" target="_blank" rel="noopener">Repetit.ru</a>
+        </p>
       </div>
     </section>
 
@@ -1249,18 +810,18 @@
       <div class="container">
         <div class="cta-box">
           <div>
-            <h2>Начнём с короткого разговора о цели</h2>
+            <h2>Напишите цель — подберём формат</h2>
             <p>
-              Напишите класс, предмет и задачу — например: «11 класс, физика, цель 80+».
-              Ответим по слотам и формату. Без давления и лишней воронки.
+              Пример: «11 класс, физика, ЕГЭ, цель 70+». Ответ в Telegram
+              @A1GEBR0 — без давления и длинной анкеты.
             </p>
           </div>
           <div>
             <div class="cta-actions">
-              <a class="btn btn-light" href="https://t.me/" target="_blank" rel="noopener">Написать в Telegram</a>
-              <a class="btn btn-ghost-light" href="mailto:hello@example.com">E-mail</a>
+              <a class="btn btn-light" href="https://t.me/A1GEBR0" target="_blank" rel="noopener">@A1GEBR0</a>
+              <a class="btn btn-ghost-light" href="https://profi.ru/profile/BekmuhambetovIR/" target="_blank" rel="noopener">Profi.ru</a>
             </div>
-            <p class="cta-fine">Контакты-плейсхолдеры · подставим Telegram и e-mail Ильи</p>
+            <p class="cta-fine">Ильдар Бекмухамбетов · репетитор · онлайн</p>
           </div>
         </div>
       </div>
@@ -1269,14 +830,13 @@
 
   <footer>
     <div class="container footer-inner">
-      <div>© <span id="year"></span> Илья Дар · Репетитор математики, физики и информатики</div>
-      <div>v2 · academic atelier · score baseline identity</div>
+      <div>© <span id="year"></span> Ильдар Бекмухамбетов · математика, физика, информатика</div>
+      <div>v3 · real profile data · academic atelier</div>
     </div>
   </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
     const toggle = document.getElementById('navToggle');
     const links = document.getElementById('navLinks');
     toggle.addEventListener('click', () => {
