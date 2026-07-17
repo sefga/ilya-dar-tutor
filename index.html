@@ -3,39 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="description" content="Илья Дар — репетитор математики, физики и информатики. 6 лет практики, системный подход, результат выше среднего." />
-  <meta name="theme-color" content="#f5f5f7" />
+  <meta name="description" content="Илья Дар — репетитор математики, физики и информатики. 6 лет практики, системный подход, измеримый прогресс к экзаменам." />
+  <meta name="theme-color" content="#1B2A3A" />
   <title>Илья Дар — репетитор математики, физики и информатики</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Literata:opsz,wght@7..72,500;7..72,600;7..72,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #f5f5f7;
-      --bg-elevated: #ffffff;
-      --bg-dark: #000000;
-      --text: #1d1d1f;
-      --text-secondary: #6e6e73;
-      --text-on-dark: #f5f5f7;
-      --text-on-dark-muted: #a1a1a6;
-      --accent: #0071e3;
-      --accent-hover: #0077ed;
-      --line: rgba(0, 0, 0, 0.08);
-      --shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
-      --radius: 28px;
-      --radius-sm: 18px;
-      --max: 1120px;
-      --nav-h: 56px;
-      --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+      --paper: #E7EBEF;
+      --paper-deep: #DCE2E8;
+      --ink: #121820;
+      --ink-soft: #4A5563;
+      --board: #1B2A3A;
+      --board-lift: #24384C;
+      --chalk: #F3EFE6;
+      --brass: #B08D57;
+      --brass-soft: rgba(176, 141, 87, 0.22);
+      --indigo: #1E3A5F;
+      --teal: #1F6F78;
+      --line: rgba(18, 24, 32, 0.1);
+      --line-chalk: rgba(243, 239, 230, 0.14);
+      --shadow: 0 18px 48px rgba(18, 24, 32, 0.1);
+      --radius: 4px;
+      --max: 1140px;
+      --nav-h: 64px;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --font-display: "Literata", "Times New Roman", serif;
+      --font-body: "Manrope", system-ui, sans-serif;
+      --font-mono: "JetBrains Mono", ui-monospace, monospace;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: Inter, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.47;
+      font-family: var(--font-body);
+      background:
+        linear-gradient(90deg, transparent 79px, rgba(18,24,32,0.035) 79px, rgba(18,24,32,0.035) 80px, transparent 80px),
+        var(--paper);
+      color: var(--ink);
+      line-height: 1.55;
       font-size: 17px;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
@@ -43,10 +50,53 @@
     img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
     button, .btn { font: inherit; cursor: pointer; border: 0; }
+    :focus-visible {
+      outline: 2px solid var(--brass);
+      outline-offset: 3px;
+    }
 
     .container {
       width: min(100% - 40px, var(--max));
       margin-inline: auto;
+    }
+
+    /* Signature: exam score baseline / ruler */
+    .score-rail {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      width: 100%;
+      margin: 28px 0 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--ink-soft);
+      letter-spacing: 0.02em;
+      user-select: none;
+    }
+    .score-rail .track {
+      position: relative;
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--brass), transparent);
+      margin: 0 10px;
+    }
+    .score-rail .track::before {
+      content: "";
+      position: absolute;
+      inset: -5px 0 auto;
+      height: 11px;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          var(--brass) 0 1px,
+          transparent 1px 8%
+        );
+      opacity: 0.55;
+    }
+    .score-rail .mark {
+      color: var(--brass);
+      font-weight: 500;
+      white-space: nowrap;
     }
 
     /* Nav */
@@ -55,9 +105,9 @@
       top: 0;
       z-index: 50;
       height: var(--nav-h);
-      backdrop-filter: saturate(180%) blur(20px);
-      -webkit-backdrop-filter: saturate(180%) blur(20px);
-      background: rgba(245, 245, 247, 0.72);
+      background: rgba(231, 235, 239, 0.88);
+      backdrop-filter: blur(14px) saturate(1.1);
+      -webkit-backdrop-filter: blur(14px) saturate(1.1);
       border-bottom: 1px solid var(--line);
     }
     .nav-inner {
@@ -68,35 +118,52 @@
       gap: 16px;
     }
     .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-display);
       font-weight: 600;
       letter-spacing: -0.02em;
-      font-size: 15px;
+      font-size: 18px;
+    }
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--brass);
+      display: grid;
+      place-items: center;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--indigo);
+      background: rgba(176, 141, 87, 0.08);
     }
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 22px;
-      font-size: 13px;
-      color: var(--text-secondary);
-    }
-    .nav-links a:hover { color: var(--text); }
-    .nav-cta {
-      background: var(--accent);
-      color: #fff;
-      padding: 8px 14px;
-      border-radius: 980px;
+      gap: 20px;
       font-size: 13px;
       font-weight: 500;
-      transition: background 0.2s var(--ease);
+      color: var(--ink-soft);
     }
-    .nav-cta:hover { background: var(--accent-hover); }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta {
+      background: var(--board);
+      color: var(--chalk);
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      transition: background 0.2s var(--ease), transform 0.2s var(--ease);
+    }
+    .nav-cta:hover { background: var(--indigo); }
     .nav-toggle {
       display: none;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
+      width: 42px;
+      height: 42px;
       background: transparent;
-      color: var(--text);
+      color: var(--ink);
+      font-size: 20px;
     }
 
     /* Buttons */
@@ -105,279 +172,326 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      border-radius: 980px;
-      padding: 14px 24px;
-      font-weight: 500;
-      font-size: 16px;
-      transition: transform 0.2s var(--ease), background 0.2s var(--ease), opacity 0.2s var(--ease);
+      padding: 14px 22px;
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 0.01em;
+      transition: transform 0.2s var(--ease), background 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease);
     }
-    .btn:hover { transform: scale(1.02); }
-    .btn:active { transform: scale(0.98); }
-    .btn-primary { background: var(--accent); color: #fff; }
-    .btn-primary:hover { background: var(--accent-hover); }
+    .btn:hover { transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+    .btn-primary {
+      background: var(--indigo);
+      color: #fff;
+    }
+    .btn-primary:hover { background: #16304f; }
     .btn-secondary {
-      background: rgba(0, 0, 0, 0.06);
-      color: var(--text);
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid rgba(18, 24, 32, 0.18);
     }
-    .btn-secondary:hover { background: rgba(0, 0, 0, 0.1); }
+    .btn-secondary:hover { border-color: var(--brass); color: var(--indigo); }
     .btn-light {
-      background: #fff;
-      color: var(--text);
+      background: var(--chalk);
+      color: var(--board);
     }
+    .btn-light:hover { background: #fff; }
     .btn-ghost-light {
       background: transparent;
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.28);
+      color: var(--chalk);
+      border: 1px solid rgba(243, 239, 230, 0.28);
     }
+    .btn-ghost-light:hover { border-color: var(--brass); color: #fff; }
 
     /* Hero */
     .hero {
-      padding: 72px 0 48px;
-      text-align: center;
+      padding: 56px 0 36px;
     }
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+    .kicker {
+      font-family: var(--font-mono);
+      font-size: 12px;
       font-weight: 500;
-      color: var(--accent);
-      letter-spacing: 0.02em;
+      color: var(--teal);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       margin-bottom: 18px;
     }
-    .eyebrow::before {
-      content: "";
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.15);
-    }
     .hero h1 {
-      font-size: clamp(40px, 7vw, 72px);
-      line-height: 1.05;
-      letter-spacing: -0.035em;
-      font-weight: 700;
-      max-width: 14ch;
-      margin: 0 auto 18px;
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5.6vw, 58px);
+      line-height: 1.06;
+      letter-spacing: -0.03em;
+      font-weight: 600;
+      max-width: 16ch;
+      margin-bottom: 18px;
     }
     .hero-lead {
-      font-size: clamp(18px, 2.2vw, 22px);
-      color: var(--text-secondary);
-      max-width: 38ch;
-      margin: 0 auto 32px;
-      letter-spacing: -0.01em;
+      font-size: clamp(17px, 2vw, 19px);
+      color: var(--ink-soft);
+      max-width: 42ch;
+      margin-bottom: 28px;
     }
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      justify-content: center;
-      margin-bottom: 48px;
+      margin-bottom: 28px;
     }
-    .hero-panel {
-      background: var(--bg-elevated);
-      border-radius: 36px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
+    .hero-meta {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      text-align: left;
-      min-height: 420px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      max-width: 520px;
     }
-    .hero-copy {
-      padding: clamp(28px, 4vw, 48px);
+    .hero-meta div {
+      background: rgba(255,255,255,0.55);
+      padding: 16px 14px;
+    }
+    .hero-meta strong {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      color: var(--indigo);
+      margin-bottom: 4px;
+    }
+    .hero-meta span {
+      font-size: 12px;
+      color: var(--ink-soft);
+      line-height: 1.35;
+    }
+
+    .board-panel {
+      background:
+        radial-gradient(circle at 18% 12%, rgba(176,141,87,0.12), transparent 32%),
+        linear-gradient(165deg, var(--board-lift), var(--board) 55%, #14202c);
+      color: var(--chalk);
+      padding: clamp(24px, 3vw, 36px);
+      min-height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       gap: 28px;
-    }
-    .hero-copy h2 {
-      font-size: clamp(28px, 3.5vw, 40px);
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-      font-weight: 650;
-    }
-    .hero-copy p {
-      color: var(--text-secondary);
-      font-size: 17px;
-      max-width: 36ch;
-      margin-top: 12px;
-    }
-    .hero-meta {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      border-top: 1px solid var(--line);
-      padding-top: 22px;
-    }
-    .hero-meta strong {
-      display: block;
-      font-size: 22px;
-      letter-spacing: -0.03em;
-      margin-bottom: 2px;
-    }
-    .hero-meta span {
-      font-size: 12px;
-      color: var(--text-secondary);
-    }
-    .hero-photo {
+      box-shadow: var(--shadow);
       position: relative;
-      background:
-        radial-gradient(circle at 30% 20%, rgba(255,255,255,0.55), transparent 35%),
-        linear-gradient(160deg, #d2d2d7 0%, #a1a1a6 45%, #6e6e73 100%);
-      min-height: 360px;
-      display: grid;
-      place-items: center;
-      color: rgba(255,255,255,0.92);
       overflow: hidden;
     }
-    .photo-placeholder {
-      width: min(78%, 280px);
-      aspect-ratio: 3/4;
-      border-radius: 28px;
-      background: rgba(255,255,255,0.14);
-      border: 1px solid rgba(255,255,255,0.22);
-      backdrop-filter: blur(8px);
+    .board-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(243,239,230,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(243,239,230,0.04) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.55), transparent 85%);
+      pointer-events: none;
+    }
+    .board-panel > * { position: relative; }
+    .goal-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(243,239,230,0.55);
+      margin-bottom: 10px;
+    }
+    .goal-score {
+      font-family: var(--font-display);
+      font-size: clamp(64px, 9vw, 96px);
+      line-height: 0.9;
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      color: #fff;
+    }
+    .goal-score em {
+      font-style: normal;
+      color: var(--brass);
+      font-size: 0.42em;
+      vertical-align: super;
+      margin-left: 4px;
+    }
+    .goal-caption {
+      margin-top: 14px;
+      font-size: 15px;
+      color: rgba(243,239,230,0.72);
+      max-width: 28ch;
+      line-height: 1.45;
+    }
+    .formula-strip {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: rgba(243,239,230,0.5);
+      border-top: 1px solid var(--line-chalk);
+      padding-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+    }
+    .formula-strip span { white-space: nowrap; }
+    .photo-slot {
+      border: 1px dashed rgba(243,239,230,0.28);
+      padding: 18px;
+      min-height: 120px;
       display: grid;
       place-items: center;
       text-align: center;
-      padding: 24px;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.18);
-    }
-    .photo-placeholder strong {
-      display: block;
-      font-size: 18px;
-      margin-bottom: 8px;
-      letter-spacing: -0.02em;
-    }
-    .photo-placeholder span {
+      color: rgba(243,239,230,0.7);
       font-size: 13px;
-      opacity: 0.85;
-      line-height: 1.4;
+      background: rgba(0,0,0,0.12);
+    }
+    .photo-slot strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 6px;
+      font-weight: 600;
     }
 
     /* Sections */
-    section { padding: 88px 0; }
+    section { padding: 84px 0; }
     .section-label {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--accent);
-      letter-spacing: 0.04em;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--teal);
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
     .section-title {
-      font-size: clamp(32px, 5vw, 48px);
+      font-family: var(--font-display);
+      font-size: clamp(30px, 4.5vw, 46px);
       letter-spacing: -0.03em;
       line-height: 1.08;
-      font-weight: 700;
-      max-width: 16ch;
+      font-weight: 600;
+      max-width: 18ch;
       margin-bottom: 16px;
     }
     .section-lead {
-      color: var(--text-secondary);
-      font-size: 19px;
-      max-width: 42ch;
-      margin-bottom: 40px;
+      color: var(--ink-soft);
+      font-size: 18px;
+      max-width: 46ch;
+      margin-bottom: 36px;
     }
 
     /* Subjects */
     .subjects-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      gap: 14px;
     }
     .card {
-      background: var(--bg-elevated);
-      border-radius: var(--radius);
-      padding: 28px;
-      box-shadow: 0 1px 0 rgba(0,0,0,0.03);
-      transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+      background: rgba(255,255,255,0.62);
+      border: 1px solid var(--line);
+      padding: 28px 24px;
+      transition: border-color 0.25s var(--ease), transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
     }
     .card:hover {
-      transform: translateY(-3px);
+      border-color: rgba(176, 141, 87, 0.55);
+      transform: translateY(-2px);
       box-shadow: var(--shadow);
     }
     .card-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: #f0f0f2;
-      margin-bottom: 18px;
-      font-size: 20px;
+      font-family: var(--font-display);
+      font-size: 28px;
+      color: var(--indigo);
+      margin-bottom: 16px;
+      line-height: 1;
     }
     .card h3 {
-      font-size: 22px;
+      font-family: var(--font-display);
+      font-size: 24px;
       letter-spacing: -0.02em;
       margin-bottom: 10px;
+      font-weight: 600;
     }
     .card p {
-      color: var(--text-secondary);
+      color: var(--ink-soft);
       font-size: 15px;
       line-height: 1.5;
     }
     .card ul {
-      margin-top: 16px;
+      margin-top: 18px;
       list-style: none;
       display: grid;
-      gap: 8px;
+      gap: 9px;
     }
     .card li {
       font-size: 14px;
-      color: var(--text);
-      padding-left: 18px;
+      padding-left: 16px;
       position: relative;
     }
     .card li::before {
       content: "";
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
+      width: 7px;
+      height: 1px;
+      background: var(--brass);
       position: absolute;
       left: 0;
-      top: 0.55em;
+      top: 0.7em;
     }
 
-    /* Method dark */
+    /* Method */
     .method {
-      background: var(--bg-dark);
-      color: var(--text-on-dark);
-      border-radius: 40px;
-      margin: 0 auto;
-      width: min(100% - 24px, calc(var(--max) + 48px));
-      padding: 72px 24px;
+      background: var(--board);
+      color: var(--chalk);
+      padding: 84px 0;
+      position: relative;
     }
-    .method .section-label { color: #2997ff; }
+    .method::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(243,239,230,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(243,239,230,0.035) 1px, transparent 1px);
+      background-size: 36px 36px;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+    .method .container { position: relative; }
+    .method .section-label { color: var(--brass); }
     .method .section-title { color: #fff; max-width: 18ch; }
-    .method .section-lead { color: var(--text-on-dark-muted); }
+    .method .section-lead { color: rgba(243,239,230,0.68); }
     .method-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
+      gap: 12px;
     }
     .method-item {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 24px;
-      padding: 28px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--line-chalk);
+      padding: 26px 24px;
     }
     .method-item .num {
-      font-size: 13px;
-      color: #2997ff;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--brass);
       font-weight: 600;
+      letter-spacing: 0.08em;
       margin-bottom: 12px;
     }
     .method-item h3 {
+      font-family: var(--font-display);
       font-size: 22px;
       letter-spacing: -0.02em;
       margin-bottom: 10px;
+      font-weight: 600;
+      color: #fff;
     }
     .method-item p {
-      color: var(--text-on-dark-muted);
+      color: rgba(243,239,230,0.68);
       font-size: 15px;
     }
 
@@ -385,56 +499,64 @@
     .stats {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      margin-bottom: 28px;
+      gap: 12px;
+      margin-bottom: 20px;
     }
     .stat {
-      background: var(--bg-elevated);
-      border-radius: 24px;
-      padding: 28px 22px;
-      text-align: center;
+      background: rgba(255,255,255,0.55);
+      border: 1px solid var(--line);
+      padding: 26px 18px;
+      text-align: left;
     }
     .stat strong {
       display: block;
-      font-size: clamp(28px, 4vw, 40px);
+      font-family: var(--font-mono);
+      font-size: clamp(28px, 3.6vw, 38px);
       letter-spacing: -0.04em;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
+      color: var(--indigo);
+      font-weight: 600;
     }
     .stat span {
-      color: var(--text-secondary);
+      color: var(--ink-soft);
       font-size: 13px;
+      line-height: 1.35;
     }
     .note {
       font-size: 13px;
-      color: var(--text-secondary);
-      text-align: center;
+      color: var(--ink-soft);
+      font-family: var(--font-mono);
     }
 
     /* Reviews */
     .reviews-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      gap: 12px;
     }
     .review {
-      background: var(--bg-elevated);
-      border-radius: var(--radius);
-      padding: 28px;
+      background: rgba(255,255,255,0.55);
+      border: 1px solid var(--line);
+      padding: 26px 22px;
       display: flex;
       flex-direction: column;
       min-height: 280px;
     }
-    .stars {
-      color: #f5a524;
-      letter-spacing: 2px;
-      font-size: 14px;
-      margin-bottom: 16px;
+    .review-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 14px;
     }
     .review blockquote {
-      font-size: 16px;
+      font-family: var(--font-display);
+      font-size: 18px;
       letter-spacing: -0.01em;
-      line-height: 1.45;
+      line-height: 1.4;
       flex: 1;
+      font-weight: 500;
     }
     .review footer {
       margin-top: 22px;
@@ -447,18 +569,19 @@
     .avatar {
       width: 40px;
       height: 40px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #d2d2d7, #86868b);
+      border: 1px solid var(--brass-soft);
+      background:
+        linear-gradient(145deg, var(--paper-deep), #c9d0d8);
       flex-shrink: 0;
     }
     .review cite {
       font-style: normal;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 700;
       display: block;
     }
     .review small {
-      color: var(--text-secondary);
+      color: var(--ink-soft);
       font-size: 12px;
     }
 
@@ -467,78 +590,93 @@
       display: grid;
       grid-template-columns: 0.9fr 1.1fr;
       gap: 28px;
-      align-items: center;
+      align-items: stretch;
     }
     .about-visual {
-      border-radius: 36px;
       min-height: 420px;
       background:
-        linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.18)),
-        linear-gradient(145deg, #e8e8ed, #c7c7cc 55%, #8e8e93);
-      display: grid;
-      place-items: end stretch;
+        radial-gradient(circle at 70% 20%, rgba(176,141,87,0.18), transparent 40%),
+        linear-gradient(165deg, var(--board-lift), var(--board));
+      border: 1px solid rgba(18,24,32,0.08);
+      display: flex;
+      align-items: flex-end;
       padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-visual::before {
+      content: "∫  ∇  ∑  ∂  λ  π";
+      position: absolute;
+      top: 28px;
+      left: 24px;
+      right: 24px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      letter-spacing: 0.28em;
+      color: rgba(243,239,230,0.28);
     }
     .about-badge {
-      background: rgba(255,255,255,0.86);
-      backdrop-filter: blur(12px);
-      border-radius: 20px;
-      padding: 18px 20px;
+      background: rgba(243,239,230,0.94);
+      border-left: 3px solid var(--brass);
+      padding: 18px 18px 18px 16px;
+      width: 100%;
     }
     .about-badge strong {
       display: block;
-      font-size: 16px;
+      font-family: var(--font-display);
+      font-size: 18px;
       margin-bottom: 4px;
+      font-weight: 600;
     }
     .about-badge span {
-      color: var(--text-secondary);
+      color: var(--ink-soft);
       font-size: 13px;
     }
     .about-list {
       list-style: none;
       display: grid;
-      gap: 14px;
+      gap: 10px;
       margin-top: 8px;
     }
     .about-list li {
-      background: var(--bg-elevated);
-      border-radius: 18px;
-      padding: 18px 20px;
+      background: rgba(255,255,255,0.55);
+      border: 1px solid var(--line);
+      padding: 16px 18px;
       font-size: 15px;
-      color: var(--text-secondary);
+      color: var(--ink-soft);
     }
     .about-list strong {
       display: block;
-      color: var(--text);
+      color: var(--ink);
       margin-bottom: 4px;
-      font-size: 16px;
+      font-size: 15px;
+      font-weight: 700;
     }
 
     /* Pricing */
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      gap: 12px;
       align-items: stretch;
     }
     .price-card {
-      background: var(--bg-elevated);
-      border-radius: 32px;
-      padding: 32px 28px;
+      background: rgba(255,255,255,0.55);
+      border: 1px solid var(--line);
+      padding: 28px 24px;
       display: flex;
       flex-direction: column;
       position: relative;
-      border: 1px solid transparent;
     }
     .price-card.featured {
-      background: var(--bg-dark);
-      color: #fff;
-      transform: scale(1.02);
+      background: var(--board);
+      color: var(--chalk);
+      border-color: transparent;
       box-shadow: var(--shadow);
     }
     .price-card.featured p,
     .price-card.featured li {
-      color: var(--text-on-dark-muted);
+      color: rgba(243,239,230,0.68);
     }
     .price-card.featured h3,
     .price-card.featured .price {
@@ -546,111 +684,125 @@
     }
     .badge {
       position: absolute;
-      top: 18px;
-      right: 18px;
-      background: #2997ff;
-      color: #fff;
-      font-size: 11px;
+      top: 16px;
+      right: 16px;
+      background: var(--brass);
+      color: var(--board);
+      font-family: var(--font-mono);
+      font-size: 10px;
       font-weight: 600;
-      padding: 6px 10px;
-      border-radius: 980px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 6px 9px;
     }
     .price-card h3 {
-      font-size: 20px;
+      font-family: var(--font-display);
+      font-size: 22px;
       margin-bottom: 8px;
       letter-spacing: -0.02em;
+      font-weight: 600;
     }
     .price-card > p {
-      color: var(--text-secondary);
+      color: var(--ink-soft);
       font-size: 14px;
       min-height: 44px;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
     .price {
-      font-size: 40px;
+      font-family: var(--font-mono);
+      font-size: 30px;
       letter-spacing: -0.04em;
-      font-weight: 700;
+      font-weight: 600;
       margin-bottom: 4px;
+      color: var(--indigo);
     }
     .price em {
       font-style: normal;
-      font-size: 16px;
+      font-size: 13px;
       font-weight: 500;
-      color: var(--text-secondary);
+      color: var(--ink-soft);
     }
-    .price-card.featured .price em { color: var(--text-on-dark-muted); }
+    .price-card.featured .price em { color: rgba(243,239,230,0.55); }
     .price-note {
       font-size: 12px;
-      color: var(--text-secondary);
-      margin-bottom: 22px;
+      color: var(--ink-soft);
+      margin-bottom: 20px;
+      font-family: var(--font-mono);
     }
+    .price-card.featured .price-note { color: rgba(243,239,230,0.5); }
     .price-card ul {
       list-style: none;
       display: grid;
       gap: 10px;
-      margin-bottom: 28px;
+      margin-bottom: 26px;
       flex: 1;
     }
     .price-card li {
       font-size: 14px;
-      padding-left: 22px;
+      padding-left: 16px;
       position: relative;
-      color: var(--text-secondary);
+      color: var(--ink-soft);
     }
     .price-card li::before {
-      content: "✓";
+      content: "";
+      width: 7px;
+      height: 1px;
+      background: var(--brass);
       position: absolute;
       left: 0;
-      color: var(--accent);
-      font-weight: 700;
+      top: 0.7em;
     }
-    .price-card.featured li::before { color: #2997ff; }
     .price-card .btn { width: 100%; }
 
     /* CTA */
     .cta {
       padding-top: 24px;
-      padding-bottom: 100px;
+      padding-bottom: 96px;
     }
     .cta-box {
       background:
-        radial-gradient(circle at 80% 20%, rgba(41,151,255,0.25), transparent 30%),
-        linear-gradient(145deg, #0b0b0f, #1d1d1f 55%, #111);
+        radial-gradient(circle at 88% 12%, rgba(176,141,87,0.18), transparent 28%),
+        linear-gradient(150deg, #14202c, var(--board) 55%, #101820);
       color: #fff;
-      border-radius: 40px;
-      padding: clamp(40px, 6vw, 72px);
-      text-align: center;
+      padding: clamp(40px, 6vw, 68px);
+      text-align: left;
+      border: 1px solid rgba(243,239,230,0.08);
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: end;
     }
     .cta-box h2 {
-      font-size: clamp(32px, 5vw, 48px);
+      font-family: var(--font-display);
+      font-size: clamp(30px, 4.5vw, 46px);
       letter-spacing: -0.03em;
       line-height: 1.08;
       max-width: 14ch;
-      margin: 0 auto 16px;
+      margin-bottom: 14px;
+      font-weight: 600;
     }
     .cta-box p {
-      color: var(--text-on-dark-muted);
-      font-size: 18px;
-      max-width: 38ch;
-      margin: 0 auto 28px;
+      color: rgba(243,239,230,0.68);
+      font-size: 17px;
+      max-width: 40ch;
     }
     .cta-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      justify-content: center;
-      margin-bottom: 18px;
+      margin-bottom: 12px;
     }
     .cta-fine {
-      font-size: 13px;
-      color: rgba(255,255,255,0.5);
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+      font-family: var(--font-mono);
     }
 
     /* Footer */
     footer {
       border-top: 1px solid var(--line);
       padding: 28px 0 40px;
-      color: var(--text-secondary);
+      color: var(--ink-soft);
       font-size: 13px;
     }
     .footer-inner {
@@ -661,62 +813,61 @@
       align-items: center;
     }
 
-    /* Mobile menu */
-    @media (max-width: 900px) {
-      .hero-panel,
+    @media (max-width: 960px) {
+      .hero-grid,
       .subjects-grid,
       .method-grid,
       .stats,
       .reviews-grid,
       .about-grid,
-      .pricing-grid {
+      .pricing-grid,
+      .cta-box {
         grid-template-columns: 1fr;
       }
-      .hero-meta { grid-template-columns: 1fr; }
-      .price-card.featured { transform: none; }
+      .hero-meta { grid-template-columns: 1fr; max-width: none; }
       .nav-links {
         position: fixed;
         inset: var(--nav-h) 12px auto;
-        background: rgba(255,255,255,0.96);
+        background: rgba(231, 235, 239, 0.98);
         border: 1px solid var(--line);
-        border-radius: 18px;
-        padding: 14px;
+        padding: 12px;
         flex-direction: column;
         align-items: stretch;
-        gap: 4px;
+        gap: 2px;
         display: none;
         box-shadow: var(--shadow);
       }
       .nav-links.open { display: flex; }
-      .nav-links a {
-        padding: 12px 10px;
-        border-radius: 12px;
-      }
-      .nav-links a:hover { background: rgba(0,0,0,0.04); }
+      .nav-links a { padding: 12px 10px; }
       .nav-toggle { display: grid; place-items: center; }
       .nav-cta { text-align: center; }
-      section { padding: 64px 0; }
-      .method { border-radius: 28px; padding: 48px 18px; }
+      section, .method { padding: 64px 0; }
+      body {
+        background: var(--paper);
+      }
     }
 
     @media (max-width: 560px) {
       .container { width: min(100% - 28px, var(--max)); }
-      .hero { padding-top: 48px; }
+      .hero { padding-top: 40px; }
       .hero-actions .btn,
       .cta-actions .btn { width: 100%; }
-      .card, .review, .price-card { padding: 22px; }
+      .card, .review, .price-card { padding: 22px 18px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .card, .btn { transition: none; }
+      .card, .btn, .nav-cta { transition: none; }
     }
   </style>
 </head>
 <body>
   <header class="nav">
     <div class="container nav-inner">
-      <a class="logo" href="#top">Илья Дар</a>
+      <a class="logo" href="#top">
+        <span class="logo-mark" aria-hidden="true">ID</span>
+        Илья Дар
+      </a>
       <button class="nav-toggle" id="navToggle" aria-label="Меню" aria-expanded="false">☰</button>
       <nav class="nav-links" id="navLinks">
         <a href="#subjects">Предметы</a>
@@ -731,51 +882,64 @@
 
   <main id="top">
     <section class="hero">
-      <div class="container">
-        <div class="eyebrow">Репетитор · 6 лет практики</div>
-        <h1>Математика, физика и информатика на уровне результата</h1>
-        <p class="hero-lead">
-          Спокойная, точная работа с учениками, которым нужны не «ещё одни занятия»,
-          а понятная система, рост оценок и уверенность на экзаменах.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#contact">Обсудить запрос</a>
-          <a class="btn btn-secondary" href="#method">Как я работаю</a>
+      <div class="container hero-grid">
+        <div>
+          <div class="kicker">Репетитор · 6 лет практики · точные науки</div>
+          <h1>Математика, физика и информатика на уровне результата</h1>
+          <p class="hero-lead">
+            Спокойная, точная работа с учениками, которым нужны не «ещё одни занятия»,
+            а понятная система, рост оценок и уверенность на экзаменах.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Обсудить запрос</a>
+            <a class="btn btn-secondary" href="#method">Как я работаю</a>
+          </div>
+          <div class="hero-meta">
+            <div>
+              <strong>6 лет</strong>
+              <span>репетиторства</span>
+            </div>
+            <div>
+              <strong>3</strong>
+              <span>ключевых предмета</span>
+            </div>
+            <div>
+              <strong>1:1</strong>
+              <span>и мини-группы</span>
+            </div>
+          </div>
         </div>
 
-        <div class="hero-panel">
-          <div class="hero-copy">
+        <aside class="board-panel" aria-label="Акцент: цель и профиль">
+          <div>
+            <div class="goal-label">Рабочая шкала · цель</div>
+            <div class="goal-score">80<em>+</em></div>
+            <p class="goal-caption">
+              Не лозунг, а ориентир: диагностика, траектория и практика,
+              где прогресс видно в баллах и пробниках.
+            </p>
+          </div>
+          <div class="photo-slot">
             <div>
-              <h2>Преподаватель, который держит планку</h2>
-              <p>
-                Илья Дар — репетитор математики, физики и информатики с опытом школьной
-                педагогики и шестью годами индивидуальной подготовки. Фокус — на
-                учениках семей, которые ценят ясность, дисциплину процесса и измеримый прогресс.
-              </p>
-            </div>
-            <div class="hero-meta">
-              <div>
-                <strong>6 лет</strong>
-                <span>репетиторства</span>
-              </div>
-              <div>
-                <strong>3</strong>
-                <span>ключевых предмета</span>
-              </div>
-              <div>
-                <strong>1:1</strong>
-                <span>и мини-группы</span>
-              </div>
+              <strong>Фото Ильи</strong>
+              Портрет преподавателя — сюда.<br />Пока: «доска» как рабочее место.
             </div>
           </div>
-          <div class="hero-photo" aria-label="Фото преподавателя">
-            <div class="photo-placeholder">
-              <div>
-                <strong>Фото Ильи</strong>
-                <span>Сюда добавим портрет.<br />Пока — аккуратный placeholder в стиле Apple.</span>
-              </div>
-            </div>
+          <div class="formula-strip" aria-hidden="true">
+            <span>f(x) → limit</span>
+            <span>F = ma</span>
+            <span>O(n log n)</span>
+            <span>EGE / OGE</span>
           </div>
+        </aside>
+      </div>
+      <div class="container">
+        <div class="score-rail" aria-hidden="true">
+          <span class="mark">0</span>
+          <div class="track"></div>
+          <span class="mark">цель 80+</span>
+          <div class="track"></div>
+          <span class="mark">100</span>
         </div>
       </div>
     </section>
@@ -837,7 +1001,7 @@
       </div>
     </section>
 
-    <div class="method" id="method">
+    <section class="method" id="method">
       <div class="container">
         <div class="section-label">Метод</div>
         <h2 class="section-title">Экспертность — это не харизма. Это система.</h2>
@@ -848,7 +1012,7 @@
 
         <div class="method-grid">
           <article class="method-item">
-            <div class="num">01</div>
+            <div class="num">ШАГ 01 · вход</div>
             <h3>Точная диагностика</h3>
             <p>
               На старте выясняем не только «какой балл нужен», но и где реально
@@ -857,7 +1021,7 @@
             </p>
           </article>
           <article class="method-item">
-            <div class="num">02</div>
+            <div class="num">ШАГ 02 · маршрут</div>
             <h3>Индивидуальная траектория</h3>
             <p>
               План занятий строится под цель: подтянуть четверть, сдать экзамен,
@@ -866,7 +1030,7 @@
             </p>
           </article>
           <article class="method-item">
-            <div class="num">03</div>
+            <div class="num">ШАГ 03 · работа</div>
             <h3>Плотная практика</h3>
             <p>
               Теория — коротко и по делу. Основное время — на задачи, разбор ошибок
@@ -875,7 +1039,7 @@
             </p>
           </article>
           <article class="method-item">
-            <div class="num">04</div>
+            <div class="num">ШАГ 04 · контроль</div>
             <h3>Прозрачный прогресс</h3>
             <p>
               Фиксируем результаты: темы закрыты, типы задач освоены, пробники
@@ -884,8 +1048,18 @@
             </p>
           </article>
         </div>
+
+        <div class="score-rail" aria-hidden="true" style="margin-top:36px;color:rgba(243,239,230,0.45)">
+          <span class="mark">диагностика</span>
+          <div class="track"></div>
+          <span class="mark">план</span>
+          <div class="track"></div>
+          <span class="mark">практика</span>
+          <div class="track"></div>
+          <span class="mark">балл</span>
+        </div>
       </div>
-    </div>
+    </section>
 
     <section id="results">
       <div class="container">
@@ -914,7 +1088,7 @@
             <span>фокус на измеримом прогрессе</span>
           </div>
         </div>
-        <p class="note">* Блок будет обновлён реальными результатами учеников и скриншотами/цифрами из отзывов.</p>
+        <p class="note">* Блок будет обновлён реальными результатами учеников и цифрами из отзывов.</p>
       </div>
     </section>
 
@@ -929,7 +1103,7 @@
 
         <div class="reviews-grid">
           <article class="review">
-            <div class="stars">★★★★★</div>
+            <div class="review-tag">Математика</div>
             <blockquote>
               «Заглушка отзыва. Здесь будет реальный текст родителя: как изменились
               оценки, дисциплина подготовки и отношение ребёнка к предмету.»
@@ -938,13 +1112,13 @@
               <div class="avatar" aria-hidden="true"></div>
               <div>
                 <cite>Имя родителя</cite>
-                <small>Математика · 10 класс · плейсхолдер</small>
+                <small>10 класс · плейсхолдер</small>
               </div>
             </footer>
           </article>
 
           <article class="review">
-            <div class="stars">★★★★★</div>
+            <div class="review-tag">Физика</div>
             <blockquote>
               «Заглушка отзыва. Здесь — история про физику: пробелы, которые закрыли,
               и спокойствие перед контрольной / экзаменом.»
@@ -953,13 +1127,13 @@
               <div class="avatar" aria-hidden="true"></div>
               <div>
                 <cite>Имя родителя</cite>
-                <small>Физика · 9–11 класс · плейсхолдер</small>
+                <small>9–11 класс · плейсхолдер</small>
               </div>
             </footer>
           </article>
 
           <article class="review">
-            <div class="stars">★★★★★</div>
+            <div class="review-tag">Информатика</div>
             <blockquote>
               «Заглушка отзыва. Здесь — про информатику: от «ничего не понимаю» к
               уверенному решению типовых и усложнённых задач.»
@@ -968,7 +1142,7 @@
               <div class="avatar" aria-hidden="true"></div>
               <div>
                 <cite>Ученик / родитель</cite>
-                <small>Информатика · плейсхолдер</small>
+                <small>плейсхолдер</small>
               </div>
             </footer>
           </article>
@@ -1074,17 +1248,20 @@
     <section class="cta" id="contact">
       <div class="container">
         <div class="cta-box">
-          <h2>Начнём с короткого разговора о цели</h2>
-          <p>
-            Напишите класс, предмет и задачу — например: «11 класс, физика, цель 80+».
-            Ответим по слотам и формату. Без давления и лишней воронки.
-          </p>
-          <div class="cta-actions">
-            <!-- Замените href на реальные ссылки -->
-            <a class="btn btn-light" href="https://t.me/" target="_blank" rel="noopener">Написать в Telegram</a>
-            <a class="btn btn-ghost-light" href="mailto:hello@example.com">E-mail</a>
+          <div>
+            <h2>Начнём с короткого разговора о цели</h2>
+            <p>
+              Напишите класс, предмет и задачу — например: «11 класс, физика, цель 80+».
+              Ответим по слотам и формату. Без давления и лишней воронки.
+            </p>
           </div>
-          <p class="cta-fine">Контакты-плейсхолдеры · подставим телефон, Telegram и мессенджер Ильи</p>
+          <div>
+            <div class="cta-actions">
+              <a class="btn btn-light" href="https://t.me/" target="_blank" rel="noopener">Написать в Telegram</a>
+              <a class="btn btn-ghost-light" href="mailto:hello@example.com">E-mail</a>
+            </div>
+            <p class="cta-fine">Контакты-плейсхолдеры · подставим Telegram и e-mail Ильи</p>
+          </div>
         </div>
       </div>
     </section>
@@ -1093,7 +1270,7 @@
   <footer>
     <div class="container footer-inner">
       <div>© <span id="year"></span> Илья Дар · Репетитор математики, физики и информатики</div>
-      <div>Сайт-портфолио · премиальный формат занятий</div>
+      <div>v2 · academic atelier · score baseline identity</div>
     </div>
   </footer>
 
