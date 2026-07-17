@@ -2,7 +2,7 @@
 
 Статический one-page сайт: математика, физика, информатика (ОГЭ/ЕГЭ, онлайн).
 
-**Live (VPS):** http://38.114.103.160:8765/  
+**Live (VPS):** https://bekmukhambetov.vercel.app  
 **Telegram:** [@A1GEBR0](https://t.me/A1GEBR0)
 
 ## Структура
