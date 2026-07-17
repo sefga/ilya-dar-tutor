@@ -1,3 +1,5 @@
 .vercel
 .DS_Store
 node_modules
+index.apple-v1.bak.html
+assets/.DS_Store
