@@ -263,13 +263,17 @@
       border: 1px solid rgba(243,239,230,0.18);
       overflow: hidden;
       background: rgba(0,0,0,0.18);
-      aspect-ratio: 4/5;
-      max-height: min(340px, 42vw);
+      aspect-ratio: 3 / 4;
       width: 100%;
+      max-height: 420px;
       flex: 0 1 auto;
     }
     .portrait-wrap img {
-      width: 100%; height: 100%; object-fit: cover; object-position: center top;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 12%;
+      display: block;
     }
     .formula-strip {
       font-family: var(--font-mono); font-size: 12px;
@@ -492,8 +496,24 @@
       .hero-grid, .subjects-grid, .method-grid, .stats, .reviews-grid,
       .about-grid, .pricing-grid, .cta-box, .edu-row { grid-template-columns: 1fr; }
       .hero-meta { grid-template-columns: 1fr; max-width: none; }
-      .board-panel { max-width: 520px; }
-      .goal-score { font-size: clamp(2rem, 6vw, 2.6rem); }
+      .board-panel {
+        max-width: none;
+        width: 100%;
+      }
+      .portrait-wrap {
+        aspect-ratio: 3 / 4;
+        max-height: none;
+        width: min(100%, 360px);
+        margin-inline: auto;
+      }
+      .goal-score { font-size: clamp(1.75rem, 7vw, 2.4rem); }
+      .score-rail {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px 0;
+        row-gap: 8px;
+      }
+      .score-rail .track { min-width: 24px; }
       .nav-links {
         position: fixed; inset: var(--nav-h) 12px auto;
         background: rgba(231, 235, 239, 0.98); border: 1px solid var(--line);
@@ -509,9 +529,23 @@
     }
     @media (max-width: 560px) {
       .container { width: min(100% - 28px, var(--max)); }
-      .hero { padding-top: 40px; }
+      .hero { padding: 28px 0 24px; }
+      .hero-grid { gap: 18px; }
       .hero-actions .btn, .cta-actions .btn { width: 100%; }
       .card, .review, .price-card { padding: 22px 18px; }
+      .logo { font-size: 15px; max-width: calc(100% - 52px); }
+      .logo-mark { width: 34px; height: 34px; }
+      .portrait-wrap {
+        width: 100%;
+        max-width: 100%;
+        aspect-ratio: 4 / 5;
+        max-height: none;
+      }
+      .portrait-wrap img { object-position: center 10%; }
+      .board-panel { padding: 18px 16px; gap: 16px; }
+      .section-title { max-width: none; }
+      .about-visual { min-height: 320px; }
+      .about-visual img { object-position: center 12%; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
